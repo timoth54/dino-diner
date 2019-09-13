@@ -15,7 +15,7 @@ namespace Menu.Entrees
     class PterodactylWings
     {
         /// <summary>
-        /// The price of Pterodactyl Wings
+        /// The price of Pterodactyl Wings.
         /// </summary>
         public double Price
         {
