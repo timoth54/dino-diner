@@ -19,7 +19,7 @@ namespace Menu.Entrees
         private uint Nuggets;
 
         /// <summary>
-        /// The price of Dino Nuggets
+        /// The price of Dino Nuggets.
         /// </summary>
         public double Price
         {
@@ -37,7 +37,7 @@ namespace Menu.Entrees
         }
 
         /// <summary>
-        /// Gives a list of ingerdients in the Dino Nuggets.
+        /// Gives a list of ingredients in the Dino Nuggets.
         /// </summary>
         public List<string> Ingredients
         {
@@ -53,7 +53,7 @@ namespace Menu.Entrees
         }
 
         /// <summary>
-        /// Makes new Dino Nuggets
+        /// Makes new Dino Nuggets.
         /// </summary>
         public DinoNuggets()
         {
