@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Brontowurst.cs
+ * Author: Timothy Tucker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,17 +17,17 @@ namespace Menu.Entrees
         /// <summary>
         /// Place the Brontowurst on a whole-wheat bun.
         /// </summary>
-        private bool bun = true;
+        private bool Bun = true;
 
         /// <summary>
         /// Add peppers to the Brontowurst.
         /// </summary>
-        private bool peppers = true;
+        private bool Peppers = true;
 
         /// <summary>
         /// Add onion to the Brontowurst.
         /// </summary>
-        private bool onion = true;
+        private bool Onion = true;
 
         /// <summary>
         /// The price of a Brontowurst.
@@ -42,9 +47,9 @@ namespace Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (bun) ingredients.Add("Whole Wheat Bun");
-                if (peppers) ingredients.Add("Peppers");
-                if (onion) ingredients.Add("Onion");
+                if (Bun) ingredients.Add("Whole Wheat Bun");
+                if (Peppers) ingredients.Add("Peppers");
+                if (Onion) ingredients.Add("Onion");
                 return ingredients;
             }
         }
@@ -63,7 +68,7 @@ namespace Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            bun = false;
+            Bun = false;
         }
 
         /// <summary>
@@ -71,7 +76,7 @@ namespace Menu.Entrees
         /// </summary>
         public void HoldPeppers()
         {
-            peppers = false;
+            Peppers = false;
         }
 
         /// <summary>
@@ -79,7 +84,7 @@ namespace Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            onion = false;
+            Onion = false;
         }
     }
 }
