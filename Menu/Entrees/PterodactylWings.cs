@@ -7,12 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Specification of making Pterodactyl Wings.
     /// </summary>
-    class PterodactylWings
+   public class PterodactylWings
     {
         /// <summary>
         /// The price of Pterodactyl Wings.

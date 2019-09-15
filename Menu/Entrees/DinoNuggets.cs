@@ -1,17 +1,18 @@
 ﻿/*
- * Brontowurst.cs
+ * DinoNuggets.cs
  * Author: Timothy Tucker
  */
+
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Specification of making Dino Nuggets.
     /// </summary>
-    class DinoNuggets
+    public class DinoNuggets
     {
         /// <summary>
         /// Number of Dino Nuggets.
@@ -68,6 +69,7 @@ namespace Menu.Entrees
         public void AddNugget()
         {
             Nuggets++;
+            Calories += 59;
             Price += .25;
         }
     }

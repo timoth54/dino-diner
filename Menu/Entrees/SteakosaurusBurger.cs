@@ -7,12 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Specification of making a Steakosaurus Burger.
     /// </summary>
-    class SteakosaurusBurger
+    public class SteakosaurusBurger
     {
         /// <summary>
         /// Burger is on a bun.

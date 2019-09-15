@@ -7,12 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Specification of making a Brontowurst.
     /// </summary>
-    class Brontowurst
+    public class Brontowurst
     {
         /// <summary>
         /// Place the Brontowurst on a whole-wheat bun.

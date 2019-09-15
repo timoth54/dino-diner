@@ -7,12 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Specification of making a Veloci-Wrap
     /// </summary>
-    class VelociWrap
+    public class VelociWrap
     {
         /// <summary>
         /// Add dressing to the order.
@@ -55,9 +55,9 @@ namespace Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Flour Tortilla", "Chicken Breast" };
-                if (Dressing) ingredients.Add("Dressing");
-                if (Lettuce) ingredients.Add("Lettuce");
-                if (Cheese) ingredients.Add("Cheese");
+                if (Dressing) ingredients.Add("Ceasar Dressing");
+                if (Lettuce) ingredients.Add("Romaine Lettuce");
+                if (Cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
             }
         }
