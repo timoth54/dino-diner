@@ -48,12 +48,51 @@ namespace Menu.Entrees
         }
 
         /// <summary>
+        /// Gives a list of ingredients on the Veloci-Wrap.
+        /// </summary>
+        public List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Flour Tortilla", "Chicken Breast" };
+                if (Dressing) ingredients.Add("Dressing");
+                if (Lettuce) ingredients.Add("Lettuce");
+                if (Cheese) ingredients.Add("Cheese");
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Makes a new Veloci-Wrap.
         /// </summary>
         public VelociWrap()
         {
             Price = 6.86;
             Calories = 356;
+        }
+
+        /// <summary>
+        /// Remove dressing from order.
+        /// </summary>
+        public void HoldDressing()
+        {
+            Dressing = false;
+        }
+
+        /// <summary>
+        /// Remove lettuce from order.
+        /// </summary>
+        public void HoldLettuce()
+        {
+            Lettuce = false;
+        }
+
+        /// <summary>
+        /// Remove cheeses from order.
+        /// </summary>
+        public void HoldCheese()
+        {
+            Cheese = false;
         }
     }
 }
