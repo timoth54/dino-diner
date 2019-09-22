@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Specification of making a Steakosaurus Burger.
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// Burger is on a bun.
@@ -37,25 +37,25 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// The price of a Steakosaurus Burger.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get;
-            private set;
+            protected set;
         }
 
         /// <summary>
         /// The Calories in a Steakosaurus Burger.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get;
-            private set;
+            protected set;
         }
 
         /// <summary>
         /// Gives a list of ingerdients on the Steakosaurus Burger.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
