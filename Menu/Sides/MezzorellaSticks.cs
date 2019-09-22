@@ -1,5 +1,5 @@
 ﻿/*
- * MeteorMacAndCheese.cs
+ * MezzorellaSticks.cs
  * Author: Timothy Tucker
  */
 using System;
@@ -9,13 +9,12 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// Specification for making Meteor Mac and Cheese
+    /// Specification for making Mezzorella Sticks
     /// </summary>
-    public class MeteorMacAndCheese : Side
+    public class MezzorellaSticks : Side
     {
-
         /// <summary>
-        /// The price of MeteorMacAndCheese.
+        /// The price of Mezzorella Sticks.
         /// </summary>
         public new double Price
         {
@@ -34,7 +33,7 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
-        /// The Calories in MeteorMacAndCheese. 
+        /// The Calories in Mezzorella Sticks. 
         /// </summary>
         public new uint Calories
         {
@@ -43,23 +42,23 @@ namespace DinoDiner.Menu.Sides
                 switch (this.Size)
                 {
                     case Size.Small:
-                        return 420;
+                        return 540;
                     case Size.Medium:
-                        return 490;
+                        return 610;
                     default:
-                        return 520;
+                        return 720;
                 }
             }
         }
 
         /// <summary>
-        /// Gives a list of ingredients in MeteorMacAndCheese.
+        /// Gives a list of ingredients in Mezzorella Sticks.
         /// </summary>
         public new List<string> Ingredients
         {
             get
             {
-                return new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
+                return new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
             }
         }
 
@@ -69,9 +68,9 @@ namespace DinoDiner.Menu.Sides
         public new Size Size { get; set; }
 
         /// <summary>
-        /// Makes new MeteorMacAndCheese.
+        /// Makes new Mezzorella Sticks.
         /// </summary>
-        public MeteorMacAndCheese()
+        public MezzorellaSticks()
         {
             this.Size = Size.Small;
         }
