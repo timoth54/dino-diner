@@ -39,6 +39,38 @@ namespace MenuTest.Drinks
             Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Orange, soda.Flavor);
         }
 
+        [Fact]
+        public void ShouldBeAbleToSetFlavorToVanilla()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Vanilla;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Vanilla, soda.Flavor);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToSetFlavorToChocolate()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Chocolate;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Chocolate, soda.Flavor);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToSetFlavorToRootBeer()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.RootBeer;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.RootBeer, soda.Flavor);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToSetFlavorToLime()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Lime;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Lime, soda.Flavor);
+        }
+
         //The correct default price, calories, ice, and size.
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
@@ -83,6 +115,59 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Small;
             Assert.Equal<uint>(112, soda.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectPriceForMedium()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Medium;
+            Assert.Equal<double>(2.00, soda.Price);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectPriceForLarge()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Large;
+            Assert.Equal<double>(2.50, soda.Price);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectCaloriesForMedium()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Medium;
+            Assert.Equal<uint>(156, soda.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectCaloriesForLarge()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Large;
+            Assert.Equal<uint>(208, soda.Calories);
+        }
+
+        //The correct ice after invoking HoldIce() method.
+        [Fact]
+        public void ShouldHaveCorrectIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.False(soda.Ice);
+        }
+
+        //The correct ingredients are given.
+        [Fact]
+        public void ShouldHaveCorrectIngredients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            List<string> ingredients = new List<string>();
+            ingredients.Add("Water");
+            ingredients.Add("Natural Flavors");
+            ingredients.Add("Cane Sugar");
+            Assert.Equal<List<string>>(ingredients, soda.Ingredients);
         }
     }
 }

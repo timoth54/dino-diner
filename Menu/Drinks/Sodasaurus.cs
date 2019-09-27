@@ -1,53 +1,75 @@
-﻿using System;
+﻿/*
+ * Sodasaurus.cs
+ * Author: Timothy Tucker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Sodasaurus
+    /// <summary>
+    /// Specification for making a Sodasaurus.
+    /// </summary>
+    public class Sodasaurus : Drink
     {
-        private Size size;
-
+        /// <summary>
+        /// Flavor of Sodasaurus.
+        /// </summary>
         public SodasaurusFlavor Flavor;
 
-        public Size Size
+        /// <summary>
+        /// Gets and sets size of drink.
+        /// </summary>
+        public new Size Size
         {
             get
             {
-                return size;
+                return this.size;
             }
             set
             {
                 if (value == Size.Small)
                 {
-                    Price = 1.50;
-                    Calories = 112;
-                    size = value;
+                    this.Price = 1.50;
+                    this.Calories = 112;
+                    this.size = value;
                 }
                 else if (value == Size.Medium)
                 {
-                    Price = 2.00;
-                    Calories = 156;
-                    size = value;
+                    this.Price = 2.00;
+                    this.Calories = 156;
+                    this.size = value;
                 }
                 else
                 {
-                    Price = 2.50;
-                    Calories = 208;
-                    size = value;
+                    this.Price = 2.50;
+                    this.Calories = 208;
+                    this.size = value;
                 }
+            }
+
+        }
+
+        /// <summary>
+        /// Gets ingredients in the drink.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
             }
         }
 
-        public double Price = 1.50;
-
-        public uint Calories = 112;
-
-        public bool Ice = true;
-
+        /// <summary>
+        /// Makes a new Sodasaurus drink.
+        /// </summary>
         public Sodasaurus()
         {
-            this.size = Size.Small;
+            this.Price = 1.50;
+            this.Calories = 112;
             this.Flavor = SodasaurusFlavor.Cherry;
         }
     }
