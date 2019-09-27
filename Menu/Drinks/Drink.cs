@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets and sets the size of a drink.
         /// </summary>
-        public Size Size
+        public virtual Size Size
         {
             get
             {
