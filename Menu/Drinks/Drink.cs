@@ -15,7 +15,7 @@ namespace DinoDiner.Menu.Drinks
     public abstract class Drink
     {
         protected Size size = Size.Small;
-        private bool ice = true;
+        protected bool ice = true;
 
         /// <summary>
         /// Gets and sets the size of a drink.

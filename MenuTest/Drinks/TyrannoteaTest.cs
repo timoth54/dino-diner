@@ -146,5 +146,52 @@ namespace MenuTest.Drinks
             tea.Sweet = true;
             Assert.Equal<uint>(64, tea.Calories);
         }
+
+        //The correct calories after being sweetend, and then unsweetend.
+        [Fact]
+        public void ShouldHaveCorrectSmallCaloriesAfterUnsweetend()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Small;
+            tea.Sweet = true;
+            tea.Sweet = false;
+            Assert.Equal<uint>(8, tea.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectMediumCaloriesAfterUnsweetend()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            tea.Sweet = true;
+            tea.Sweet = false;
+            Assert.Equal<uint>(16, tea.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectLargeCaloriesAfterUnsweetend()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
+            tea.Sweet = true;
+            tea.Sweet = false;
+            Assert.Equal<uint>(32, tea.Calories);
+        }
+
+        //The correct ingredients are given.
+        [Fact]
+        public void ShouldHaveCorrectIngredients()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            List<string> ingredients = tea.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Tea", ingredients);
+            tea.AddLemon();
+            ingredients = tea.Ingredients;
+            Assert.Contains<string>("Lemon", ingredients);
+            tea.Sweet = true;
+            ingredients = tea.Ingredients;
+            Assert.Contains<string>("Cane Sugar", ingredients);
+        }
     }
 }

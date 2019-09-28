@@ -29,7 +29,25 @@ namespace DinoDiner.Menu.Drinks
             set
             {
                 sweet = value;
-                if (sweet) this.Calories = this.Calories * 2;
+                if (sweet)
+                {
+                    this.Calories = this.Calories * 2;
+                }
+                else
+                {
+                    if (this.Size == Size.Small)
+                    {
+                        this.Calories = 8;
+                    }
+                    else if (this.Size == Size.Medium)
+                    {
+                        this.Calories = 16;
+                    }
+                    else
+                    {
+                        this.Calories = 32;
+                    }
+                }
             }
         }
 
@@ -42,7 +60,7 @@ namespace DinoDiner.Menu.Drinks
             {
                 return lemon;
             }
-            set
+            private set
             {
                 lemon = value;
             }
