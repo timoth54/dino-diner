@@ -7,12 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Specification for making a Jurassic Java.
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         private bool spaceForCream = false;
         private bool decaf = false;
@@ -94,7 +94,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Makes a new Jurrasic Java.
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.ice = false;
             this.Price = .59;
