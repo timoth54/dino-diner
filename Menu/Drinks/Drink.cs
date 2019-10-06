@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstraction of all drinks.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         protected Size size = Size.Small;
         protected bool ice = true;

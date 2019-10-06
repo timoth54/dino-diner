@@ -56,7 +56,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gives a list of ingredients in MeteorMacAndCheese.
         /// </summary>
-        public new List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
