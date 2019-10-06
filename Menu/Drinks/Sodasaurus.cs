@@ -72,5 +72,14 @@ namespace DinoDiner.Menu
             this.Calories = 112;
             this.Flavor = SodasaurusFlavor.Cherry;
         }
+
+        /// <summary>
+        /// String representation of Sodasaurus object.
+        /// </summary>
+        /// <returns>Name of the drink.</returns>
+        public override string ToString()
+        {
+            return String.Format("{0} {1} Sodasaurus", size.ToString(), Flavor.ToString());
+        }
     }
 }

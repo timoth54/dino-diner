@@ -130,5 +130,22 @@ namespace DinoDiner.Menu
         {
             this.lemon = true;
         }
+
+        /// <summary>
+        /// String representation of Tyrannotea object.
+        /// </summary>
+        /// <returns>Name of the drink.</returns>
+        public override string ToString()
+        {
+            if (!sweet)
+            {
+                return String.Format("{0} Tyrannotea", size.ToString());
+            }
+            else
+            {
+                return String.Format("{0} Sweet Tyrannotea", size.ToString());
+            }
+            
+        }
     }
 }

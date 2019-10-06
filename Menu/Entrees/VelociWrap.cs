@@ -94,5 +94,14 @@ namespace DinoDiner.Menu
         {
             Cheese = false;
         }
+
+        /// <summary>
+        /// String representation of VelociWrap object.
+        /// </summary>
+        /// <returns>Name of the entree.</returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
+        }
     }
 }

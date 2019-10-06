@@ -116,5 +116,21 @@ namespace DinoDiner.Menu
         {
             this.ice = true;
         }
+
+        /// <summary>
+        /// String representation of JurassicJava object.
+        /// </summary>
+        /// <returns>Name of the drink.</returns>
+        public override string ToString()
+        {
+            if (!decaf)
+            {
+                return (size + " Jurassic Java");
+            }
+            else
+            {
+                return (size + " Decaf Jurassic Java");
+            }
+        }
     }
 }

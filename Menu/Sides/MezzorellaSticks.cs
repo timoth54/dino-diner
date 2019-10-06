@@ -75,5 +75,14 @@ namespace DinoDiner.Menu
         {
             this.Size = Size.Small;
         }
+
+        /// <summary>
+        /// String representation of MezzorellaSticks object.
+        /// </summary>
+        /// <returns>Name of the side.</returns>
+        public override string ToString()
+        {
+            return (Size.ToString() + " Mezzorella Sticks");
+        }
     }
 }

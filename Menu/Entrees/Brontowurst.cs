@@ -86,5 +86,14 @@ namespace DinoDiner.Menu
         {
             Onion = false;
         }
+
+        /// <summary>
+        /// String representation of Brontowurst object.
+        /// </summary>
+        /// <returns>Name of the entree.</returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
+        }
     }
 }

@@ -76,5 +76,14 @@ namespace DinoDiner.Menu
         {
             this.Size = Size.Small;
         }
+
+        /// <summary>
+        /// String representation of MeteorMacAndCheese object.
+        /// </summary>
+        /// <returns>Name of the side.</returns>
+        public override string ToString()
+        {
+            return (Size.ToString() + " Meteor Mac and Cheese");
+        }
     }
 }

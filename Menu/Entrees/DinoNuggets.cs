@@ -72,5 +72,14 @@ namespace DinoDiner.Menu
             Calories += 59;
             Price += .25;
         }
+
+        /// <summary>
+        /// String representation of DinoNuggets object.
+        /// </summary>
+        /// <returns>Name of the entree.</returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
+        }
     }
 }

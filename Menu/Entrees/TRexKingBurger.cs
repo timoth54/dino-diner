@@ -164,5 +164,14 @@ namespace DinoDiner.Menu
         {
             Tomato = false;
         }
+
+        /// <summary>
+        /// String representation of TRexKingBurger object.
+        /// </summary>
+        /// <returns>Name of the entree.</returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
+        }
     }
 }

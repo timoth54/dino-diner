@@ -52,5 +52,13 @@ namespace DinoDiner.Menu
             Calories = 318;
         }
 
+        /// <summary>
+        /// String representation of PterodactylWings object.
+        /// </summary>
+        /// <returns>Name of the entree.</returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
+        }
     }
 }

@@ -71,5 +71,14 @@ namespace DinoDiner.Menu
         {
             lemon = true;
         }
+
+        /// <summary>
+        /// String representation of Water object.
+        /// </summary>
+        /// <returns>Name of the drink.</returns>
+        public override string ToString()
+        {
+            return String.Format("{0} Water", size.ToString());
+        }
     }
 }

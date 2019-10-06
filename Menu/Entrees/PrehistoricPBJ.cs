@@ -42,5 +42,14 @@ namespace DinoDiner.Menu
         {
             this.jelly = false;
         }
+
+        /// <summary>
+        /// String representation of PrehistoricPBJ object.
+        /// </summary>
+        /// <returns>Name of the entree.</returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
+        }
     }
 }

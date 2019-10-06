@@ -82,9 +82,13 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// String representation of CretaceousCombo object.
+        /// </summary>
+        /// <returns>Name of the combo.</returns>
         public override string ToString()
         {
-            return "";
+            return String.Format("{0} Combo", Entree.ToString());
         }
 
         private CretaceousCombo() { }
