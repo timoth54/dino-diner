@@ -7,14 +7,43 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ComboSeclection">
-
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
                 <Setter Property="MinWidth" Value="140"/>
                 <Setter Property="MinHeight" Value="140"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Brown" Offset="0.0"/>
+                            <GradientStop Color="WhiteSmoke" Offset=".99"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Margin" Value="10,10,10,10"/>
+            </Style>
+            <Style TargetType="WrapPanel">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="ForestGreen" Offset="0.0"/>
+                            <GradientStop Color="White" Offset=".5"/>
+                            <GradientStop Color="ForestGreen" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </WrapPanel.Resources>
+
+        <Label Content="Combos" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="300,0">
+            <Label.FontFamily>Courier New</Label.FontFamily>
+            <Label.FontSize>20</Label.FontSize>
+            <Label.FontWeight>Bold</Label.FontWeight>
+            <Label.FontStyle>Italic</Label.FontStyle>
+        </Label>
         <Button>Brontowurst Combo</Button>
         <Button >Dino-Nuggets Combo</Button>
         <Button>Steakosauruse Burger Combo</Button>
