@@ -54,6 +54,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="SideSelection.xaml.cs">
+      <DependentUpon>SideSelection.xaml</DependentUpon>
+    </Compile>
     <Page Include="ComboSeclection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +91,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuCategorySelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SideSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,14 +136,14 @@
     <Resource Include="Assets\SteakosaurusBurger.png" />
     <Resource Include="Assets\TRexKingBurger.png" />
     <Resource Include="Assets\Veloci-Wrap.png" />
-    <Resource Include="Assets\DinoDiner-08.png" />
-    <Resource Include="Assets\DinoDiner-09.png" />
-    <Resource Include="Assets\DinoDiner-10.png" />
-    <Resource Include="Assets\DinoDiner-11.png" />
-    <Resource Include="Assets\DinoDiner-12.png" />
-    <Resource Include="Assets\DinoDiner-13.png" />
-    <Resource Include="Assets\DinoDiner-14.png" />
-    <Resource Include="Assets\DinoDiner-15.png" />
+    <Resource Include="Assets\Fryceritops.png" />
+    <Resource Include="Assets\MeteorMacAndCheese.png" />
+    <Resource Include="Assets\MozzerellaSticks.png" />
+    <Resource Include="Assets\Triceritots.png" />
+    <Resource Include="Assets\TyrannoTea.png" />
+    <Resource Include="Assets\JurassicJava.png" />
+    <Resource Include="Assets\Sodasaurus.png" />
+    <Resource Include="Assets\Water.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

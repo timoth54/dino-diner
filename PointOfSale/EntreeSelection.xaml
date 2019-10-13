@@ -63,13 +63,13 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-            <TextBlock Text="Add To Order" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="300,0" 
+        <TextBlock Text="Add To Order:&#10;Entree Selection" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="300,0" 
                        Grid.ColumnSpan="3" Grid.Column="0">
                 <TextBlock.FontFamily>Courier New</TextBlock.FontFamily>
                 <TextBlock.FontSize>32</TextBlock.FontSize>
                 <TextBlock.FontWeight>Bold</TextBlock.FontWeight>
                 <TextBlock.FontStyle>Italic</TextBlock.FontStyle>
-            </TextBlock>
+        </TextBlock>
         
             <Button x:Name="BrontowurstButton" Grid.Column="0" Grid.Row="1">
                 <StackPanel>
