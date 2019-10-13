@@ -70,6 +70,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel>
+            <Separator Width="Auto" Background="Black" Height="10"/>
             <Label HorizontalAlignment="Center" Style="{StaticResource generalFormatting}">
                 <Label.Content>
                     <TextBlock>
@@ -80,8 +81,10 @@
                 </Label.Content>
             </Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="200">
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top"/>
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="Fryceritops"
+                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="Sodasaurus"
+                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
             </StackPanel>
         </StackPanel>
     </DockPanel>

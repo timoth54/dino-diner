@@ -43,6 +43,7 @@
                 <Setter Property="FontFamily" Value="Times New Roman"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontStyle" Value="Italic"/>
             </Style>
             <Style TargetType="Image">
                 <Setter Property="Width" Value="140"/>
