@@ -8,7 +8,15 @@
         Title="MainWindow">
     <Window.SizeToContent>Height</Window.SizeToContent>
     <DockPanel>
-        <ComboBox DockPanel.Dock="Right" MinWidth="200" MinHeight="200" Background="LightSteelBlue">// TODO: Order</ComboBox>
+        <StackPanel DockPanel.Dock="Right">
+            <Label Content="Current Order" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="16"/>
+            <ListBox  MinWidth="200" MinHeight="450" Background="SlateGray">// TODO: Order</ListBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="CancelButton" Content="Cancel" FontFamily="Times New Roman" FontSize="16" Margin="0,0,10,0"/>
+                <Button x:Name="PayButton" Content="Pay" FontFamily="Times New Roman" FontSize="16"/>
+            </StackPanel>
+        </StackPanel>
+
         <Frame Source="MenuCategorySelection.xaml"></Frame>
     </DockPanel>
 </Window>
