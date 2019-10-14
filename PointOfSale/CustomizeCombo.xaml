@@ -84,7 +84,7 @@
                 <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="Fryceritops"
                         FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Click="SelectSide"/>
                 <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="Sodasaurus"
-                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
+                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Click="SelectDrink"/>
             </StackPanel>
         </StackPanel>
     </DockPanel>
