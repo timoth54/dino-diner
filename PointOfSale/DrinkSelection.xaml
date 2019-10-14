@@ -1,4 +1,6 @@
-﻿<Page x:Class="PointOfSale.DrinkSelection"
+﻿<!-- DrinkSelection.xaml-->
+<!-- Author: Timothy Tucker-->
+<Page x:Class="PointOfSale.DrinkSelection"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -32,6 +34,7 @@
                 <Setter Property="BorderBrush" Value="Black"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Margin" Value="10,10,40,10"/>
+                <Setter Property="BorderThickness" Value="3,0,0,5"/>
             </Style>
             <Style TargetType="Grid">
                 <Setter Property="Background">
@@ -144,7 +147,7 @@
                 <Button Content="Add/Remove Lemon" Style="{StaticResource JurassicWoodColoring}" x:Name="LemonButton" Visibility="Hidden"/>
                 <Button Content="Add/Remove Sweetener" Style="{StaticResource JurassicWoodColoring}" x:Name="SweetenerButton" Visibility="Hidden"/>
                 <Button Content="Add/Remove Caffeine" Style="{StaticResource JurassicWoodColoring}" x:Name="CaffeineButton" Visibility="Hidden"/>
-                <Button Content="Change Sodasaurus Flavor" Style="{StaticResource JurassicWoodColoring}" x:Name="FlavorButton"/>
+                <Button Content="Change Sodasaurus Flavor" Style="{StaticResource JurassicWoodColoring}" x:Name="FlavorButton" Click="ChangeFlavor"/>
             </StackPanel>
         </StackPanel>
         </TextBlock>

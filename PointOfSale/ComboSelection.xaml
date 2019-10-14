@@ -20,6 +20,7 @@
                 <Setter Property="MinHeight" Value="170"/>
                 <Setter Property="BorderBrush" Value="Black"/>
                 <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="BorderThickness" Value="3,0,0,5"/>
                 <EventSetter Event="Click" Handler="CustomizeCombo"/>
                 
                 <Setter Property="Background">

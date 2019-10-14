@@ -21,7 +21,8 @@
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
                     <Setter Property="HorizontalAlignment" Value="Left"/>
-                    <Setter Property="Background">
+                <Setter Property="BorderThickness" Value="3,0,0,5"/>
+                <Setter Property="Background">
                         <Setter.Value>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="Brown" Offset="0.0"/>

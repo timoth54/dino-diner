@@ -76,5 +76,10 @@ namespace PointOfSale
             FlavorButton.Visibility = Visibility.Hidden;
             SweetenerButton.Visibility = Visibility.Hidden;
         }
+
+        private void ChangeFlavor(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
     }
 }

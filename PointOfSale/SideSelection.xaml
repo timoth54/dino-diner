@@ -25,6 +25,7 @@
                 <Setter Property="MinHeight" Value="170"/>
                 <Setter Property="BorderBrush" Value="Black"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="BorderThickness" Value="3,0,0,5"/>
                 <Setter Property="Background">
                     <Setter.Value>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

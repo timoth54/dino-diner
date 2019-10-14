@@ -57,10 +57,13 @@
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FlavorSelection.xaml.cs">
+      <DependentUpon>FlavorSelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
     </Compile>
-    <Page Include="ComboSeclection.xaml">
+    <Page Include="ComboSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,6 +79,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FlavorSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,8 +91,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ComboSeclection.xaml.cs">
-      <DependentUpon>ComboSeclection.xaml</DependentUpon>
+    <Compile Include="ComboSelection.xaml.cs">
+      <DependentUpon>ComboSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomizeCombo.xaml.cs">
       <DependentUpon>CustomizeCombo.xaml</DependentUpon>
