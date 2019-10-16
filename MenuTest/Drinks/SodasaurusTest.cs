@@ -13,61 +13,20 @@ namespace MenuTest.Drinks
 {
     public class SodasaurusTest
     {
+        [Theory]
+        [InlineData(SodasaurusFlavor.Cola)]
+        [InlineData(SodasaurusFlavor.Cherry)]
+        [InlineData(SodasaurusFlavor.Orange)]
+        [InlineData(SodasaurusFlavor.Vanilla)]
+        [InlineData(SodasaurusFlavor.Chocolate)]
+        [InlineData(SodasaurusFlavor.RootBeer)]
+        [InlineData(SodasaurusFlavor.Lime)]
         //The ability to set each possible flavor.
-        [Fact]
-        public void ShouldBeAbleToSetFlavorToCola()
+        public void ShouldBeAbleToSetFlavor(SodasaurusFlavor flavor)
         {
             Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.Cola;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Cola, soda.Flavor);
-        }
-
-        [Fact]
-        public void ShouldBeAbleToSetFlavorToCherry()
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.Cherry;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Cherry, soda.Flavor);
-        }
-
-        [Fact]
-        public void ShouldBeAbleToSetFlavorToOrange()
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.Orange;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Orange, soda.Flavor);
-        }
-
-        [Fact]
-        public void ShouldBeAbleToSetFlavorToVanilla()
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.Vanilla;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Vanilla, soda.Flavor);
-        }
-
-        [Fact]
-        public void ShouldBeAbleToSetFlavorToChocolate()
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.Chocolate;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Chocolate, soda.Flavor);
-        }
-
-        [Fact]
-        public void ShouldBeAbleToSetFlavorToRootBeer()
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.RootBeer;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.RootBeer, soda.Flavor);
-        }
-
-        [Fact]
-        public void ShouldBeAbleToSetFlavorToLime()
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.Lime;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Lime, soda.Flavor);
+            soda.Flavor = flavor;
+            Assert.Equal<SodasaurusFlavor>(flavor, soda.Flavor);
         }
 
         //The correct default price, calories, ice, and size.

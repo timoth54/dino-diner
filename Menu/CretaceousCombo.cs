@@ -88,7 +88,7 @@ namespace DinoDiner.Menu
         /// <returns>Name of the combo.</returns>
         public override string ToString()
         {
-            return String.Format("{0} Combo", Entree.ToString());
+            return String.Format($"{Entree} Combo");
         }
 
         private CretaceousCombo() { }
@@ -104,6 +104,26 @@ namespace DinoDiner.Menu
             Drink = new Sodasaurus();
         }
 
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
 
+        public string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                specials.AddRange(Entree.Special);
+                specials.Add(Side.ToString());
+                specials.AddRange(Side.Special);
+                specials.Add(Drink.ToString());
+                specials.AddRange(Drink.Special);
+                return specials.ToArray();
+            }
+        }
     }
 }
