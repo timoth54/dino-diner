@@ -93,6 +93,27 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the entree.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Bun) special.Add("Hold Bun");
+                if (!Ketchup) special.Add("Hold Ketchup");
+                if (!Mustard) special.Add("Hold Mustard");
+                if (!Pickle) special.Add("Hold Pickle");
+                if (!Mayo) special.Add("Hold Mayo");
+                if (!Lettuce) special.Add("Hold Lettuce");
+                if (!Onion) special.Add("Hold Onion");
+                if (!Tomato) special.Add("Hold Tomato");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Makes a new T-Rex King Burger.
         /// </summary>
         public TRexKingBurger()

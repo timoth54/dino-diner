@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets or sets the entree.
@@ -104,6 +104,9 @@ namespace DinoDiner.Menu
             Drink = new Sodasaurus();
         }
 
+        /// <summary>
+        /// Gets a description of the combo.
+        /// </summary>
         public string Description
         {
             get
@@ -112,6 +115,10 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets a list of special preparations
+        /// for the combo.
+        /// </summary>
         public string[] Special
         {
             get

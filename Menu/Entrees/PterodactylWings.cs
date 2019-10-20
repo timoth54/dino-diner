@@ -44,6 +44,18 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the entree.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                return new List<string>() { }.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Makes new Pterodactyl Wings.
         /// </summary>
         public PterodactylWings()

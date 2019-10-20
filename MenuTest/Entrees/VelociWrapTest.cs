@@ -56,5 +56,81 @@ namespace MenuTest.Entrees
             vw.HoldCheese();
             Assert.DoesNotContain<string>("Parmesan Cheese", vw.Ingredients);
         }
+
+        [Fact]
+        public void VelociWrapDescriptionShouldGiveItemName()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.Equal("Veloci-Wrap", vw.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressing()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            Assert.Contains("Hold Dressing", vw.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldLettuce()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldLettuce();
+            Assert.Contains("Hold Lettuce", vw.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldCheese();
+            Assert.Contains("Hold Cheese", vw.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressingAndLettuce()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            vw.HoldLettuce();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Dressing", special);
+            Assert.Contains("Hold Lettuce", special);
+        }
+        [Fact]
+        public void SpecialShouldHoldDressingAndCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            vw.HoldCheese();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Dressing", special);
+            Assert.Contains("Hold Cheese", special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldLettuceAndCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldLettuce();
+            vw.HoldCheese();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Lettuce", special);
+            Assert.Contains("Hold Cheese", special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldAll()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            vw.HoldLettuce();
+            vw.HoldCheese();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Dressing", special);
+            Assert.Contains("Hold Lettuce", special);
+            Assert.Contains("Hold Cheese", special);
+        }
     }
 }

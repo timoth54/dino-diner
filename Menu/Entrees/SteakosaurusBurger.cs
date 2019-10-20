@@ -69,6 +69,23 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the entree.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Bun) special.Add("Hold Bun");
+                if (!Pickle) special.Add("Hold Pickle");
+                if (!Ketchup) special.Add("Hold Ketchup");
+                if (!Mustard) special.Add("Hold Mustard");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Makes a new Steakosaurus Burger.
         /// </summary>
         public SteakosaurusBurger()

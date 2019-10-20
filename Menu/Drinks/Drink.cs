@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstraction of all drinks.
     /// </summary>
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         protected Size size = Size.Small;
         protected bool ice = true;
@@ -51,6 +51,17 @@ namespace DinoDiner.Menu
         /// Gets ingredients in a drink.
         /// </summary>
         public abstract List<string> Ingredients { get; }
+
+        /// <summary>
+        /// Gets a list of special preparations
+        /// for the drink.
+        /// </summary>
+        public abstract string[] Special { get; }
+
+        /// <summary>
+        /// Gets a description of the drink.
+        /// </summary>
+        public virtual string Description { get => this.ToString(); }
 
         /// <summary>
         /// Removes ice from order.

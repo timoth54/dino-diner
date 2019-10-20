@@ -127,5 +127,43 @@ namespace MenuTest.Drinks
             ingredients.Add("Cane Sugar");
             Assert.Equal<List<string>>(ingredients, soda.Ingredients);
         }
+
+        [Theory]
+        [InlineData(SodasaurusFlavor.Cola, Size.Small)]
+        [InlineData(SodasaurusFlavor.Cherry, Size.Small)]
+        [InlineData(SodasaurusFlavor.Orange, Size.Small)]
+        [InlineData(SodasaurusFlavor.Vanilla, Size.Small)]
+        [InlineData(SodasaurusFlavor.Chocolate, Size.Small)]
+        [InlineData(SodasaurusFlavor.RootBeer, Size.Small)]
+        [InlineData(SodasaurusFlavor.Lime, Size.Small)]
+        [InlineData(SodasaurusFlavor.Cola, Size.Medium)]
+        [InlineData(SodasaurusFlavor.Cherry, Size.Medium)]
+        [InlineData(SodasaurusFlavor.Orange, Size.Medium)]
+        [InlineData(SodasaurusFlavor.Vanilla, Size.Medium)]
+        [InlineData(SodasaurusFlavor.Chocolate, Size.Medium)]
+        [InlineData(SodasaurusFlavor.RootBeer, Size.Medium)]
+        [InlineData(SodasaurusFlavor.Lime, Size.Medium)]
+        [InlineData(SodasaurusFlavor.Cola, Size.Large)]
+        [InlineData(SodasaurusFlavor.Cherry, Size.Large)]
+        [InlineData(SodasaurusFlavor.Orange, Size.Large)]
+        [InlineData(SodasaurusFlavor.Vanilla, Size.Large)]
+        [InlineData(SodasaurusFlavor.Chocolate, Size.Large)]
+        [InlineData(SodasaurusFlavor.RootBeer, Size.Large)]
+        [InlineData(SodasaurusFlavor.Lime, Size.Large)]
+        public void SodasaurusDescriptionShouldHaveItemName(SodasaurusFlavor flavor, Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = flavor;
+            soda.Size = size;
+            Assert.Equal($"{size} {flavor} Sodasaurus", soda.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Contains("Hold Ice", soda.Special);
+        }
     }
 }

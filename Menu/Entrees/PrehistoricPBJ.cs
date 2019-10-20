@@ -39,9 +39,10 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Gets any special preparation instructions.
+        /// Gets a list of special preparations
+        /// for the entree.
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
@@ -51,6 +52,7 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
+
         public override List<string> Ingredients
         {
             get

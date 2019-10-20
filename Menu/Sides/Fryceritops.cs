@@ -65,6 +65,18 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the side.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                return new List<string>() { }.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Size of the Side.
         /// </summary>
         public new Size Size { get; set; }
@@ -83,7 +95,7 @@ namespace DinoDiner.Menu
         /// <returns>Name of the side.</returns>
         public override string ToString()
         {
-            return (Size.ToString() + " Friceritops");
+            return (Size.ToString() + " Fryceritops");
         }
     }
 }

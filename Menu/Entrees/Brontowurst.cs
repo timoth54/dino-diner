@@ -55,6 +55,22 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the entree.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Bun) special.Add("Hold Bun");
+                if (!Peppers) special.Add("Hold Peppers");
+                if (!Onion) special.Add("Hold Onion");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Makes a new Brontowurst.
         /// </summary>
         public Brontowurst()

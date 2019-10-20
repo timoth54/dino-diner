@@ -63,6 +63,21 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the entree.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Dressing) special.Add("Hold Dressing");
+                if (!Lettuce) special.Add("Hold Lettuce");
+                if (!Cheese) special.Add("Hold Cheese");
+                return special.ToArray();
+            }
+        }
+        /// <summary>
         /// Makes a new Veloci-Wrap.
         /// </summary>
         public VelociWrap()

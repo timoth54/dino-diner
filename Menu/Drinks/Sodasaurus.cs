@@ -63,12 +63,16 @@ namespace DinoDiner.Menu
             }
         }
 
-        public string Description
+        /*public string Description
         {
             get { return this.ToString(); }
-        }
+        }*/
 
-        public string[] Special
+        /// <summary>
+        /// Gets a list of special preparations
+        /// for the drink.
+        /// </summary>
+        public override string[] Special
         {
             get
             {

@@ -115,6 +115,21 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the drink.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!ice) special.Add("Hold Ice");
+                if (lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Makes a new Tyrannotea drink.
         /// </summary>
         public Tyrannotea()

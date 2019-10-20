@@ -92,6 +92,21 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the drink.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (ice) special.Add("Add Ice");
+                if (spaceForCream) special.Add("Leave Space For Cream");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Makes a new Jurrasic Java.
         /// </summary>
         public JurassicJava()

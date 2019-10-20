@@ -70,6 +70,18 @@ namespace DinoDiner.Menu
         public new Size Size { get; set; }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the side.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                return new List<string>() { }.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Makes new MeteorMacAndCheese.
         /// </summary>
         public MeteorMacAndCheese()

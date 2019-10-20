@@ -54,6 +54,25 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of special preparations
+        /// for the entree.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                if (Nuggets > 6)
+                {
+                    return new List<string>() { String.Format("{0} Extra Nuggets", (Nuggets - 6)) }.ToArray(); 
+                }
+                else
+                {
+                    return new List<string>() { }.ToArray();
+                }
+            }
+        }
+
+        /// <summary>
         /// Makes new Dino Nuggets.
         /// </summary>
         public DinoNuggets()
