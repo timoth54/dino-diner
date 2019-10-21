@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -86,6 +87,19 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Makes a new Steakosaurus Burger.
         /// </summary>
         public SteakosaurusBurger()
@@ -100,6 +114,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             Bun = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -108,6 +123,7 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             Pickle = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -116,6 +132,7 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             Ketchup = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -124,6 +141,7 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             Mustard = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

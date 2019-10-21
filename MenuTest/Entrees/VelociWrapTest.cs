@@ -132,5 +132,35 @@ namespace MenuTest.Entrees
             Assert.Contains("Hold Lettuce", special);
             Assert.Contains("Hold Cheese", special);
         }
+
+        [Fact]
+        public void HoldDressingShouldNotifyOfSpecialPropertyChange()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldDressing();
+            });
+        }
+
+        [Fact]
+        public void HoldLettuceShouldNotifyOfSpecialPropertyChange()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldLettuce();
+            });
+        }
+
+        [Fact]
+        public void HoldCheeseShouldNotifyOfSpecialPropertyChange()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldCheese();
+            });
+        }
     }
 }

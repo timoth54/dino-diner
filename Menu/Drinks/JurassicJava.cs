@@ -6,16 +6,24 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Specification for making a Jurassic Java.
     /// </summary>
-    public class JurassicJava : Drink
+    public class JurassicJava : Drink, INotifyPropertyChanged
     {
         private bool spaceForCream = false;
         private bool decaf = false;
+        private bool ice = false;
+
+        /// <summary>
+        /// Gets if the drink has ice or not.
+        /// </summary>
+        public bool Ice { get => ice; }
+
 
         /// <summary>
         /// Gets or sets if the drink should have room for cream.
@@ -25,10 +33,6 @@ namespace DinoDiner.Menu
             get
             {
                 return spaceForCream;
-            }
-            set
-            {
-                spaceForCream = value;
             }
         }
 
@@ -44,6 +48,7 @@ namespace DinoDiner.Menu
             set
             {
                 decaf = value;
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -76,6 +81,9 @@ namespace DinoDiner.Menu
                     this.Calories = 8;
                     this.size = value;
                 }
+
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
             }
 
         }
@@ -107,6 +115,19 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Makes a new Jurrasic Java.
         /// </summary>
         public JurassicJava()
@@ -122,6 +143,7 @@ namespace DinoDiner.Menu
         public void LeaveSpaceForCream()
         {
             spaceForCream = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -130,6 +152,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             this.ice = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

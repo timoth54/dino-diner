@@ -159,6 +159,36 @@ namespace MenuTest.Entrees
                     Assert.Equal("Hold Onion", item);
                 });
         }
+
+        [Fact]
+        public void HoldBunShouldNotifyOfSpecialPropertyChange()
+        {
+            Brontowurst brontowurst = new Brontowurst();
+            Assert.PropertyChanged(brontowurst, "Special", () =>
+            {
+                brontowurst.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void HoldPeppersShouldNotifyOfSpecialPropertyChange()
+        {
+            Brontowurst brontowurst = new Brontowurst();
+            Assert.PropertyChanged(brontowurst, "Special", () =>
+            {
+                brontowurst.HoldPeppers();
+            });
+        }
+
+        [Fact]
+        public void HoldOnionShouldNotifyOfSpecialPropertyChange()
+        {
+            Brontowurst brontowurst = new Brontowurst();
+            Assert.PropertyChanged(brontowurst, "Special", () =>
+            {
+                brontowurst.HoldOnion();
+            });
+        }
     }
 
 }

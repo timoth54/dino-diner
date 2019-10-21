@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
 
-    public abstract class Side : IMenuItem, IOrderItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets the price
@@ -38,5 +39,11 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual string Description { get => this.ToString(); }
 
+        /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

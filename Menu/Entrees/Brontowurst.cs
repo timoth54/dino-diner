@@ -6,13 +6,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Specification of making a Brontowurst.
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, INotifyPropertyChanged
     {
         /// <summary>
         /// Place the Brontowurst on a whole-wheat bun.
@@ -71,6 +72,19 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Makes a new Brontowurst.
         /// </summary>
         public Brontowurst()
@@ -85,6 +99,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             Bun = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -93,6 +108,7 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             Peppers = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -101,6 +117,7 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             Onion = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -14,10 +15,26 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Sodasaurus : Drink
     {
+        private bool ice = true;
+        private SodasaurusFlavor flavor; 
+
+        /// <summary>
+        /// Gets if the drink has ice or not.
+        /// </summary>
+        public bool Ice { get => ice; }
+
         /// <summary>
         /// Flavor of Sodasaurus.
         /// </summary>
-        public SodasaurusFlavor Flavor;
+        public SodasaurusFlavor Flavor
+        {
+            get => flavor;
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Gets and sets size of drink.
@@ -48,6 +65,8 @@ namespace DinoDiner.Menu
                     this.Calories = 208;
                     this.size = value;
                 }
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
             }
 
         }
@@ -62,11 +81,6 @@ namespace DinoDiner.Menu
                 return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
             }
         }
-
-        /*public string Description
-        {
-            get { return this.ToString(); }
-        }*/
 
         /// <summary>
         /// Gets a list of special preparations
@@ -83,13 +97,35 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Makes a new Sodasaurus drink.
         /// </summary>
         public Sodasaurus()
         {
             this.Price = 1.50;
             this.Calories = 112;
-            this.Flavor = SodasaurusFlavor.Cherry;
+            flavor = SodasaurusFlavor.Cherry;
+        }
+
+        /// <summary>
+        /// Removes ice from order.
+        /// </summary>
+        public void HoldIce()
+        {
+            ice = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

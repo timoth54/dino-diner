@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -14,6 +15,8 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Triceritots : Side
     {
+        private Size size = Size.Small;
+
         /// <summary>
         /// The price of Triceritots.
         /// </summary>
@@ -21,7 +24,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                switch (this.Size)
+                switch (this.size)
                 {
                     case Size.Small:
                         return .99;
@@ -40,7 +43,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                switch (this.Size)
+                switch (this.size)
                 {
                     case Size.Small:
                         return 352;
@@ -66,7 +69,16 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Size of the Side.
         /// </summary>
-        public new Size Size { get; set; }
+        public new Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+            }
+        }
 
         /// <summary>
         /// Gets a list of special preparations
@@ -81,11 +93,24 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Makes new Triceritots.
         /// </summary>
         public Triceritots()
         {
-            this.Size = Size.Small;
+            
         }
 
         /// <summary>

@@ -175,5 +175,61 @@ namespace MenuTest.Drinks
             Assert.Contains("Leave Space For Cream", special);
             Assert.Contains("Add Ice", special);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeChangeShouldNotifyOfDescriptionPropertyChange(Size size)
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Description", () =>
+            {
+                java.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeChangeShouldNotifyOfPricePropertyChange(Size size)
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Price", () =>
+            {
+                java.Size = size;
+            });
+        }
+
+        [Fact]
+        public void DecafShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Description", () =>
+            {
+                java.Decaf = true;
+            });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.AddIce();
+            });
+        }
+
+        [Fact]
+        public void LeaveSpaceForCreamShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.LeaveSpaceForCream();
+            });
+        }
     }
 }

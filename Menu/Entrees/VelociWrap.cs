@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -77,6 +78,20 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Makes a new Veloci-Wrap.
         /// </summary>
@@ -92,6 +107,7 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             Dressing = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -100,6 +116,7 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             Lettuce = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -108,6 +125,7 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             Cheese = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

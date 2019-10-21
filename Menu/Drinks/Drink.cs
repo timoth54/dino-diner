@@ -6,16 +6,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Abstraction of all drinks.
     /// </summary>
-    public abstract class Drink : IMenuItem, IOrderItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         protected Size size = Size.Small;
-        protected bool ice = true;
 
         /// <summary>
         /// Gets and sets the size of a drink.
@@ -31,11 +31,6 @@ namespace DinoDiner.Menu
                 size = value;
             }
         }
-
-        /// <summary>
-        /// Gets if the drink has ice or not.
-        /// </summary>
-        public bool Ice { get => ice; }
 
         /// <summary>
         /// Gets the price of a drink.
@@ -64,11 +59,10 @@ namespace DinoDiner.Menu
         public virtual string Description { get => this.ToString(); }
 
         /// <summary>
-        /// Removes ice from order.
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
         /// </summary>
-        public void HoldIce()
-        {
-            ice = false;
-        }
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

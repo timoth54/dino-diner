@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -73,6 +74,19 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// The PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, and
+        /// Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Makes new Dino Nuggets.
         /// </summary>
         public DinoNuggets()
@@ -90,6 +104,8 @@ namespace DinoDiner.Menu
             Nuggets++;
             Calories += 59;
             Price += .25;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Price");
         }
 
         /// <summary>

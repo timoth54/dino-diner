@@ -165,5 +165,39 @@ namespace MenuTest.Drinks
             Assert.Contains("Add Lemon", special);
             Assert.Contains("Hold Ice", special);
         }
+
+        [Fact]
+        public void HoldIceShouldNotifyOfSpecialPropertyChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () =>
+            {
+                water.HoldIce();
+            });
+        }
+
+
+        [Fact]
+        public void AddLemonShouldNotifyOfSpecialPropertyChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () =>
+            {
+                water.AddLemon();
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void SizeChangeShouldNotifyOfDescriptionPropertyChange(Size size)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Description", () =>
+            {
+                water.Size = size;
+            });
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace DinoDiner.Menu
         /// of changes to the Price, Description, and
         /// Special properties
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         //Helper function for notifying of property changes
         private void NotifyOfPropertyChange(string propertyName)
@@ -33,7 +33,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the description
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
