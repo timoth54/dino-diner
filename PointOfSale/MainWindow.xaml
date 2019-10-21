@@ -4,19 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
+        xmlns:menu="clr-namespace:DinoDiner.Menu;assembly=Menu"
         mc:Ignorable="d"
         Title="MainWindow">
     <Window.SizeToContent>Height</Window.SizeToContent>
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Right">
-            <Label Content="Current Order" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="16"/>
-            <ListBox  MinWidth="200" MinHeight="450" Background="SlateGray">// TODO: Order</ListBox>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="CancelButton" Content="Cancel" FontFamily="Times New Roman" FontSize="16" Margin="0,0,10,0"/>
-                <Button x:Name="PayButton" Content="Pay" FontFamily="Times New Roman" FontSize="16"/>
-            </StackPanel>
-        </StackPanel>
 
-        <Frame Source="MenuCategorySelection.xaml"></Frame>
+    <Window.DataContext>
+        <menu:Order/>
+    </Window.DataContext>
+    <DockPanel>
+        <local:OrderControl x:Name="OrderList" DockPanel.Dock="Right" Width="200"/>
+        <Frame Source="MenuCategorySelection.xaml" 
+               Name="OrderInterface"
+               DataContextChanged="OnDataContextChanged"
+               LoadCompleted="OnLoadCompleted"
+               />
     </DockPanel>
 </Window>

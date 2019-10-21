@@ -19,12 +19,10 @@ namespace MenuTest
         {
             Order order = new Order();
 
-            ObservableCollection<IOrderItem> orderItems = new ObservableCollection<IOrderItem>();
-            orderItems.Add(new Brontowurst());
-            orderItems.Add(new Fryceritops());
-            orderItems.Add(new Sodasaurus());
+            order.Items.Add(new Brontowurst());
+            order.Items.Add(new Fryceritops());
+            order.Items.Add(new Sodasaurus());
 
-            order.Items = orderItems;
             Assert.Equal(7.85, order.SubtotalCost, 2);
             Assert.Equal(7.85, order.TotalCost, 2);
         }
