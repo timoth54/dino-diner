@@ -9,6 +9,9 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Specifcation for making a Crestaceous Combo
+    /// </summary>
     public class CretaceousCombo : IMenuItem, IOrderItem
     {
         /// <summary>

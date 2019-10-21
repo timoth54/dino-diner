@@ -10,6 +10,9 @@ using System.Collections.ObjectModel;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Specification for making an order.
+    /// </summary>
     public class Order
     {
 
