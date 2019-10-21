@@ -12,10 +12,13 @@ namespace DinoDiner.Menu
 {
     public class Order
     {
+
+        private ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
+
         /// <summary>
         /// A list of items being ordered.
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; }
+        public ObservableCollection<IOrderItem> Items { get => items; set => items = value; }
 
         /// <summary>
         /// The cost of all items collectively.

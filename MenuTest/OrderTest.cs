@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.Collections.ObjectModel;
 using Xunit;
 
 namespace MenuTest
@@ -14,23 +15,44 @@ namespace MenuTest
     public class OrderTest
     {
         [Fact]
-        public void ShouldGiveCorrectSubtotal()
+        public void ShouldGiveCorrectSubtotalAndTotal()
         {
             Order order = new Order();
-            order.Items.Add(new Brontowurst());
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Sodasaurus());
-            Assert.Equal<double>(7.85, order.SubtotalCost);
+
+            ObservableCollection<IOrderItem> orderItems = new ObservableCollection<IOrderItem>();
+            orderItems.Add(new Brontowurst());
+            orderItems.Add(new Fryceritops());
+            orderItems.Add(new Sodasaurus());
+
+            order.Items = orderItems;
+            Assert.Equal(7.85, order.SubtotalCost, 2);
+            Assert.Equal(7.85, order.TotalCost, 2);
         }
 
         [Fact]
-        public void ShouldGiveCorrectSalesCostForDefault()
+        public void ShouldGiveCorrectSalesTaxCostForDefaultTaxRate()
         {
             Order order = new Order();
-            order.Items.Add(new Brontowurst());
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Sodasaurus());
+            ObservableCollection<IOrderItem> orderItems = new ObservableCollection<IOrderItem>();
+            orderItems.Add(new Brontowurst());
+            orderItems.Add(new Fryceritops());
+            orderItems.Add(new Sodasaurus());
+            order.Items = orderItems;
             Assert.Equal<double>(0, order.SalesTaxCost);
+        }
+
+        [Fact]
+        public void ShouldGiveNonNegativeSubtotalCostForLargeDiscount()
+        {
+            Order order = new Order();
+            ObservableCollection<IOrderItem> orderItems = new ObservableCollection<IOrderItem>();
+            Brontowurst brontowurst = new Brontowurst();
+            brontowurst.Price = -99;
+            orderItems.Add(brontowurst);
+            orderItems.Add(new Fryceritops());
+            orderItems.Add(new Sodasaurus());
+            order.Items = orderItems;
+            Assert.Equal<double>(0, order.SubtotalCost);
         }
     }
 }

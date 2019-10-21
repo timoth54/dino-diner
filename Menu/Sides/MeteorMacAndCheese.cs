@@ -21,7 +21,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The price of MeteorMacAndCheese.
         /// </summary>
-        public new double Price
+        public override double Price
         {
             get
             {

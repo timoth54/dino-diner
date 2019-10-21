@@ -33,7 +33,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The price of a Brontowurst.
         /// </summary>
-        public override double Price { get; protected set; }
+        public override double Price { get; set; }
 
         /// <summary>
         /// The Calories in a Brontowurst.

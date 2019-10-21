@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Compile Remove="BrontowurstTest.cs" />
-    <Compile Remove="ComboTest.cs" />
     <Compile Remove="DinoNuggetsTest.cs" />
     <Compile Remove="PrehistoricPBJTest.cs" />
     <Compile Remove="PterodactylWingsTest.cs" />

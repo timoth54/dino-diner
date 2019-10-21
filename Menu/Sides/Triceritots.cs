@@ -20,7 +20,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The price of Triceritots.
         /// </summary>
-        public new double Price
+        public override double Price
         {
             get
             {

@@ -19,7 +19,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The price of Mezzorella Sticks.
         /// </summary>
-        public new double Price
+        public override double Price
         {
             get
             {
