@@ -30,7 +30,7 @@ namespace PointOfSale
         }
     }
 
-    /*public void OnLoadCompleted(object sender, NavigationEventArgs args)
+    public void OnLoadCompleted(object sender, NavigationEventArgs args)
     {
 
     }
@@ -45,5 +45,5 @@ namespace PointOfSale
         FrameworkElement content = OrderInterfaceContent as FrameworkElement;
         if(content == null) return;
         content.DataContext = OrderInterface.DataContext;
-    }*/
+    }
 }

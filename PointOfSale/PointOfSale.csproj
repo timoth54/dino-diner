@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Menu">
+      <HintPath>..\Menu\obj\Debug\netstandard2.0\Menu.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -165,12 +168,6 @@
     <Resource Include="Assets\JurassicJava.png" />
     <Resource Include="Assets\Sodasaurus.png" />
     <Resource Include="Assets\Water.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Menu\Menu.csproj">
-      <Project>{2f5f801d-c838-4c96-a2be-a40c4dffb719}</Project>
-      <Name>Menu</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
