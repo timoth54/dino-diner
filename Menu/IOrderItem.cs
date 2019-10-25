@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -13,7 +14,7 @@ namespace DinoDiner.Menu
     /// Specifies all things an order
     /// item has.
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the order item.
@@ -29,5 +30,7 @@ namespace DinoDiner.Menu
         /// Gets the special preparations for the order item.
         /// </summary>
         string[] Special { get; }
+
+        event PropertyChangedEventHandler PropertyChanged;
     }
 }

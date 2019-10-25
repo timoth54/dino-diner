@@ -28,22 +28,22 @@ namespace PointOfSale
             order.Items.Add(new Fryceritops());
             order.Items.Add(new Tyrannotea());
         }
-    }
 
-    public void OnLoadCompleted(object sender, NavigationEventArgs args)
-    {
+        public void OnLoadCompleted(object sender, NavigationEventArgs args)
+        {
+            SetFrameDataContext();
+        }
 
-    }
+        public void OnDataTextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            SetFrameDataContext();
+        }
 
-    public void OnDataTextChanged(object sender, DependencyPropertyChangedEventArgs args)
-    {
-
-    }
-
-    private void SetFrameDataContext()
-    {
-        FrameworkElement content = OrderInterfaceContent as FrameworkElement;
-        if(content == null) return;
-        content.DataContext = OrderInterface.DataContext;
+        private void SetFrameDataContext()
+        {
+            FrameworkElement content = OrderInterface.Content as FrameworkElement;
+            if (content == null) return;
+            content.DataContext = OrderInterface.DataContext;
+        }
     }
 }

@@ -79,7 +79,7 @@
             <TextBlock.FontWeight>Bold</TextBlock.FontWeight>
             <TextBlock.FontStyle>Italic</TextBlock.FontStyle>
         </TextBlock>
-        <Button x:Name="FryceritopsButton" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
+        <Button x:Name="FryceritopsButton" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Click="OnSelectFryceritops">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/Fryceritops.png"/>
@@ -88,7 +88,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="MeteorMacAndCheeseButton" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">
+        <Button x:Name="MeteorMacAndCheeseButton" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Click="OnSelectMeteorMacAndCheese">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/MeteorMacAndCheese.png"/>
@@ -106,7 +106,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="TriceritosButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right">
+        <Button x:Name="TriceritosButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Click="OnSelectTriceritots">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/Triceritots.png"/>
@@ -120,11 +120,11 @@
                 <Label Content="Side Sizes:" Style="{StaticResource generalFormatting}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Small:" Style="{StaticResource RadioText}"/>
-                    <RadioButton x:Name="smallButton" Padding="10,0,0,0"/>
+                    <RadioButton x:Name="smallButton" Padding="10,0,0,0" Checked="OnMakeSmall"/>
                     <TextBlock Text="Medium:" Style="{StaticResource RadioText}"/>
-                    <RadioButton x:Name="mediumButton" Padding="10,0,0,0"/>
+                    <RadioButton x:Name="mediumButton" Padding="10,0,0,0" Checked="OnMakeMedium"/>
                     <TextBlock Text="Large:" Style="{StaticResource RadioText}"/>
-                    <RadioButton x:Name="largeButton"/>
+                    <RadioButton x:Name="largeButton" Checked="OnMakeLarge"/>
             </StackPanel>
         </StackPanel>
         </TextBlock>

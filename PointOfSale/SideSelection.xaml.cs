@@ -21,6 +21,7 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        public Side Side { get; private set; }
         public SideSelection()
         {
             InitializeComponent();
@@ -37,6 +38,52 @@ namespace PointOfSale
             smallButton.IsEnabled = true;
             mediumButton.IsEnabled = true;
             largeButton.IsEnabled = true;
+        }
+
+        private void SelectSide(Side side)
+        {
+            if (DataContext is Order order)
+            {
+                order.Items.Add(side);
+                this.Side = side;
+            }
+        }
+
+        private void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if (Side != null)
+            {
+                this.Side.Size = size;
+            }
+        }
+        protected void OnSelectFryceritops(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new Fryceritops());
+        }
+
+        protected void OnSelectTriceritots(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new Triceritots());
+        }
+
+        protected void OnSelectMeteorMacAndCheese(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MeteorMacAndCheese());
+        }
+
+        protected void OnMakeLarge(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Large);
+        }
+
+        protected void OnMakeMedium(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Medium);
+        }
+
+        protected void OnMakeSmall(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Small);
         }
     }
 }

@@ -13,23 +13,51 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <TextBox Text="Order" Grid.Row="0"/>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}">
+        <ListBox Grid.Row="1" 
+                 ItemsSource="{Binding Path=Items}" 
+                 Name="OrderItems"
+                 IsSynchronizedWithCurrentItem="True"
+                 SelectionChanged="OnSelectionChanged"
+                 DataContextChanged="OnDataContextChanged"
+                 >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox ItemsSource="{Binding Path=Special}"/>
+                    <StackPanel Width="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <Button Click="OnRemoveItem"
+                                    Background="Red"
+                                    Foreground="White"
+                                    Grid.Column="1">
+                                X
+                            </Button>
+                            <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
+                        </Grid>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Border Grid.Row="2">
-            <StackPanel Orientation="Horizontal">
-                <TextBox Text="Price"/>
-                <TextBox Text="$___"/>
-            </StackPanel>
-        </Border>
+        <TextBlock Text="{Binding Path=SubtotalCost, StringFormat=n2}"
+                       Grid.Row="2"
+                       Grid.Column="0"/>
+            
+            <TextBlock Text="{Binding Path=SalesTaxCost, StringFormat=n2}"
+                       Grid.Row="2"
+                       Grid.Column="1"/>
+
+        <TextBlock Text="{Binding Path=TotalCost, StringFormat=n2}"
+                       Grid.Row="2"
+                       Grid.Column="2"/>
 
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
     </Grid>
