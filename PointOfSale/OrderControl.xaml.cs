@@ -34,7 +34,7 @@ namespace PointOfSale
                 {
                     if(element.DataContext is IOrderItem item)
                     {
-                        order.Items.Remove(item);
+                        order.Remove(item);
                     }
                 }
             }
@@ -44,7 +44,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Items.CollectionChanged += OnCollectionChanged;
+                order.PropertyChanged += OnCollectionChanged;
             }
         }
 

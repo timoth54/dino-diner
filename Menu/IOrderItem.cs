@@ -30,7 +30,5 @@ namespace DinoDiner.Menu
         /// Gets the special preparations for the order item.
         /// </summary>
         string[] Special { get; }
-
-        event PropertyChangedEventHandler PropertyChanged;
     }
 }

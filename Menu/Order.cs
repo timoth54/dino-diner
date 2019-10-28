@@ -17,21 +17,34 @@ namespace DinoDiner.Menu
     public class Order : INotifyPropertyChanged
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //Backing variables
+        public List<IOrderItem> items = new List<IOrderItem>();
 
+        /// <summary>
+        /// The PropertyChanged event handler, notifies when a property's value updates.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// A list of items being ordered.
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; protected set; }
+
+        public IOrderItem[] Items
+        {
+            get
+            {
+                return items.ToArray();
+            }
+        }
 
         /// <summary>
-        /// The cost of all items collectively.
+        /// Gets the collective cost of all items
+        /// before a tax is applied.
         /// </summary>
         public double SubtotalCost
         {
             get
             {
-                if (Items.Count != 0)
+                if (Items.Length != 0)
                 {
                     double subtotalCost = 0;
                     foreach (IOrderItem item in Items)
@@ -44,21 +57,21 @@ namespace DinoDiner.Menu
                 {
                     return 0;
                 }
-            } 
+            }
         }
 
         /// <summary>
-        /// The tax rate.
+        /// Gets the tax rate.
         /// </summary>
         public double SalesTaxRate { get; protected set; }
 
         /// <summary>
-        /// The amount paid in taxes for the order.
+        /// Gets the amount paid in taxes for the order.
         /// </summary>
         public double SalesTaxCost { get => (SubtotalCost * SalesTaxRate); }
 
         /// <summary>
-        /// Total price of the order.
+        /// Gets the total price of the order.
         /// </summary>
         public double TotalCost { get => (SubtotalCost + SalesTaxCost); }
 
@@ -67,22 +80,49 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
-            Items = new ObservableCollection<IOrderItem>();
-            Items.CollectionChanged += OnCollectionChanged;
             SalesTaxRate = .05;
         }
 
-        private void OnCollectionChanged(object sender, EventArgs args)
+        /// <summary>
+        /// Notifies of a property change.
+        /// </summary>
+        /// <param name="propertyName">The name of the property that changed.</param>
+        protected void NotifyAllPropertiesChanged()
         {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
         }
 
+        /// <summary>
+        /// Adds a new item to the order.
+        /// </summary>
+        /// <param name="item">The item being added.</param>
         public void Add(IOrderItem item)
         {
-            item.PropertyChanged += OnCollectionChanged;
-            Items.Add(item);
+            items.Add(item);
+            item.PropertyChanged += OnPropertyChanged;
+            NotifyAllPropertiesChanged();
+        }
+
+        /// <summary>
+        /// Removes a item from the order.
+        /// </summary>
+        /// <param name="item">The item being removed.</param>
+        public bool Remove(IOrderItem item)
+        {
+            bool removed = items.Remove(item);
+            if (removed)
+            {
+                NotifyAllPropertiesChanged();
+            }
+            return removed;
+        }
+
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            NotifyAllPropertiesChanged();
         }
     }
 }

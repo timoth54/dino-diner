@@ -16,7 +16,7 @@
         <TextBox Text="Order" Grid.Row="0" Grid.ColumnSpan="3"/>
         <ListBox Grid.Row="1"
                  Grid.ColumnSpan="3"
-                 ItemsSource="{Binding Path=Items}" 
+                 ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}" 
                  Name="OrderItems"
                  IsSynchronizedWithCurrentItem="True"
                  SelectionChanged="OnSelectionChanged"
@@ -30,7 +30,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="{Binding Path=Description}"/>
                             <Button Click="OnRemoveItem"
                                     Background="Red"
                                     Foreground="White"
@@ -45,11 +45,11 @@
         </ListBox>
         <StackPanel Grid.Row="2">
             <TextBlock>Subtotal Cost:</TextBlock>
-            <TextBlock Text="{Binding Path=SubtotalCost, UpdateSourceTrigger=PropertyChanged, StringFormat=n2}"/>
+            <TextBlock Text="{Binding Path=SubtotalCost, StringFormat=n2}"/>
             <TextBlock>Sales Tax Cost:</TextBlock>
-            <TextBlock Text="{Binding Path=SalesTaxCost, UpdateSourceTrigger=PropertyChanged, StringFormat=n2}"/>
+            <TextBlock Text="{Binding Path=SalesTaxCost, StringFormat=n2}"/>
             <TextBlock>Total Cost:</TextBlock>
-            <TextBlock Text="{Binding Path=TotalCost, UpdateSourceTrigger=PropertyChanged, StringFormat=n2}"/>
+            <TextBlock Text="{Binding Path=TotalCost, StringFormat=n2}"/>
         </StackPanel>
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
     </Grid>
