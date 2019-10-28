@@ -38,7 +38,6 @@ namespace DinoDiner.Menu
                     {
                         subtotalCost += item.Price;
                     }
-
                     return Math.Max(0, subtotalCost);
                 }
                 else
@@ -70,7 +69,7 @@ namespace DinoDiner.Menu
         {
             Items = new ObservableCollection<IOrderItem>();
             Items.CollectionChanged += OnCollectionChanged;
-            SalesTaxRate = 5;
+            SalesTaxRate = .05;
         }
 
         private void OnCollectionChanged(object sender, EventArgs args)
@@ -82,7 +81,7 @@ namespace DinoDiner.Menu
 
         public void Add(IOrderItem item)
         {
-            item.PropertyChanged += OnCollectionChanged();
+            item.PropertyChanged += OnCollectionChanged;
             Items.Add(item);
         }
     }

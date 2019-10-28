@@ -16,7 +16,7 @@ namespace DinoDiner.Menu
     public class MeteorMacAndCheese : Side
     {
 
-        private Size size = Size.Small;
+        private Size size;
 
         /// <summary>
         /// The price of MeteorMacAndCheese.
@@ -70,7 +70,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Size of the Side.
         /// </summary>
-        public new Size Size
+        public override Size Size
         {
             get => size;
             set
@@ -111,7 +111,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public MeteorMacAndCheese()
         {
-
+            size = Size.Small;
         }
 
         /// <summary>

@@ -78,7 +78,10 @@
         </TextBlock>
 
         <!-- Button representations of different combos. -->
-        <Button x:Name="BrontowurstButton" Grid.Column="0" Grid.Row="1">
+        <Button x:Name="BrontowurstButton" 
+                Grid.Column="0" 
+                Grid.Row="1"
+                Click="OnSelectBrontowurst">
                 <StackPanel>
                     <TextBlock>
                     <Image Source="Assets/Brontowurst.png"/>
@@ -87,7 +90,10 @@
                 </StackPanel>
         </Button>
 
-            <Button x:Name="DinoNuggetsButton" Grid.Column="1" Grid.Row="1">
+            <Button x:Name="DinoNuggetsButton" 
+                    Grid.Column="1" 
+                    Grid.Row="1"
+                    Click="OnSelectDinoNuggets">
                 <StackPanel>
                     <TextBlock>
                     <Image Source="Assets/Dino-Nuggets.png"/>
@@ -95,7 +101,10 @@
                     <TextBlock>Dino-Nuggets</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="SteakosaurusBurgerButton" Grid.Column="1" Grid.Row="2">
+            <Button x:Name="SteakosaurusBurgerButton" 
+                    Grid.Column="1" 
+                    Grid.Row="2"
+                    Click="OnSelectSteakosaurusBurger">
                 <StackPanel>
                     <TextBlock>
                     <Image Source="Assets/SteakosaurusBurger.png"/>
@@ -103,7 +112,10 @@
                     <TextBlock>Steakosaurus Burger</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="TRexKingBurgerButton" Grid.Column="2" Grid.Row="2">
+            <Button x:Name="TRexKingBurgerButton" 
+                    Grid.Column="2" 
+                    Grid.Row="2"
+                    Click="OnSelectTRexKingBurger">
                 <StackPanel>
                     <TextBlock>
                     <Image Source="Assets/TRexKingBurger.png"/>
@@ -111,7 +123,11 @@
                     <TextBlock>T-Rex King Burger</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="PterodactylWingsButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">
+            <Button x:Name="PterodactylWingsButton" 
+                    Grid.Column="2" 
+                    Grid.Row="1" 
+                    VerticalAlignment="Center"
+                    Click="OnSelectPterodactylWings">
                 <StackPanel>
                     <TextBlock>
                     <Image Source="Assets/PterodactylWings.png"/>
@@ -119,7 +135,10 @@
                     <TextBlock>Pterodactyl Wings</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="PrehistoricPBJButton" Grid.Column="0" Grid.Row="2">
+            <Button x:Name="PrehistoricPBJButton" 
+                    Grid.Column="0" 
+                    Grid.Row="2"
+                    Click="OnSelectPrehistoricPBJ">
                 <StackPanel>
                     <TextBlock>
                     <Image Source="Assets/PrehistoricPBJ.png"/>
@@ -127,7 +146,11 @@
                     <TextBlock>Prehistoric PB&amp;J</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="VelociWrapButton" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom">
+            <Button x:Name="VelociWrapButton" 
+                    Grid.Column="0" 
+                    Grid.Row="3" 
+                    VerticalAlignment="Bottom"
+                    Click="OnSelectVelociWrap">
                 <StackPanel>
                     <TextBlock>
                     <Image Source="Assets/Veloci-Wrap.png"/>

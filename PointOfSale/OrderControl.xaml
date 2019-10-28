@@ -10,16 +10,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <TextBox Text="Order" Grid.Row="0"/>
-        <ListBox Grid.Row="1" 
+        <TextBox Text="Order" Grid.Row="0" Grid.ColumnSpan="3"/>
+        <ListBox Grid.Row="1"
+                 Grid.ColumnSpan="3"
                  ItemsSource="{Binding Path=Items}" 
                  Name="OrderItems"
                  IsSynchronizedWithCurrentItem="True"
@@ -34,31 +30,27 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Path=Description}"/>
+                            <TextBlock Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
                             <Button Click="OnRemoveItem"
                                     Background="Red"
                                     Foreground="White"
                                     Grid.Column="1">
                                 X
                             </Button>
-                            <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
                         </Grid>
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock Text="{Binding Path=SubtotalCost, StringFormat=n2}"
-                       Grid.Row="2"
-                       Grid.Column="0"/>
-            
-            <TextBlock Text="{Binding Path=SalesTaxCost, StringFormat=n2}"
-                       Grid.Row="2"
-                       Grid.Column="1"/>
-
-        <TextBlock Text="{Binding Path=TotalCost, StringFormat=n2}"
-                       Grid.Row="2"
-                       Grid.Column="2"/>
-
+        <StackPanel Grid.Row="2">
+            <TextBlock>Subtotal Cost:</TextBlock>
+            <TextBlock Text="{Binding Path=SubtotalCost, UpdateSourceTrigger=PropertyChanged, StringFormat=n2}"/>
+            <TextBlock>Sales Tax Cost:</TextBlock>
+            <TextBlock Text="{Binding Path=SalesTaxCost, UpdateSourceTrigger=PropertyChanged, StringFormat=n2}"/>
+            <TextBlock>Total Cost:</TextBlock>
+            <TextBlock Text="{Binding Path=TotalCost, UpdateSourceTrigger=PropertyChanged, StringFormat=n2}"/>
+        </StackPanel>
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
     </Grid>
 </UserControl>

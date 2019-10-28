@@ -15,7 +15,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Triceritots : Side
     {
-        private Size size = Size.Small;
+        private Size size;
 
         /// <summary>
         /// The price of Triceritots.
@@ -69,7 +69,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Size of the Side.
         /// </summary>
-        public new Size Size
+        public override Size Size
         {
             get => size;
             set
@@ -110,7 +110,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Triceritots()
         {
-            
+            size = Size.Small;
         }
 
         /// <summary>

@@ -40,8 +40,6 @@ namespace PointOfSale
             }
         }
 
-        
-
         private void MountItemListener()
         {
             if (DataContext is Order order)

@@ -25,8 +25,6 @@ namespace PointOfSale
         {
             InitializeComponent();
             Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Tyrannotea());
         }
 
         public void OnLoadCompleted(object sender, NavigationEventArgs args)

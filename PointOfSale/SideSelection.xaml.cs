@@ -27,25 +27,15 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        public void AddFryceritops(object sender, RoutedEventArgs args)
-        {
-            Order order = new Order();
-            order.Items.Add(new Fryceritops());
-            FryceritopsButton.IsEnabled = false;
-            MozzerellaSticksButton.IsEnabled = false;
-            MeteorMacAndCheeseButton.IsEnabled = false;
-            TriceritosButton.IsEnabled = false;
-            smallButton.IsEnabled = true;
-            mediumButton.IsEnabled = true;
-            largeButton.IsEnabled = true;
-        }
-
         private void SelectSide(Side side)
         {
             if (DataContext is Order order)
             {
                 order.Items.Add(side);
                 this.Side = side;
+                smallButton.IsEnabled = true;
+                mediumButton.IsEnabled = true;
+                largeButton.IsEnabled = true;
             }
         }
 
@@ -54,21 +44,34 @@ namespace PointOfSale
             if (Side != null)
             {
                 this.Side.Size = size;
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
         protected void OnSelectFryceritops(object sender, RoutedEventArgs args)
         {
             SelectSide(new Fryceritops());
+            MeteorMacAndCheeseButton.IsEnabled = false;
+            TriceritosButton.IsEnabled = false;
+            MozzerellaSticksButton.IsEnabled = false;
+            FryceritopsButton.IsEnabled = false;
         }
 
         protected void OnSelectTriceritots(object sender, RoutedEventArgs args)
         {
             SelectSide(new Triceritots());
+            MeteorMacAndCheeseButton.IsEnabled = false;
+            FryceritopsButton.IsEnabled = false;
+            MozzerellaSticksButton.IsEnabled = false;
+            TriceritosButton.IsEnabled = false;
         }
 
         protected void OnSelectMeteorMacAndCheese(object sender, RoutedEventArgs args)
         {
             SelectSide(new MeteorMacAndCheese());
+            FryceritopsButton.IsEnabled = false;
+            TriceritosButton.IsEnabled = false;
+            MeteorMacAndCheeseButton.IsEnabled = false;
+            MozzerellaSticksButton.IsEnabled = false;
         }
 
         protected void OnMakeLarge(object sender, RoutedEventArgs args)

@@ -15,7 +15,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class MezzorellaSticks : Side
     {
-        private Size size = Size.Small;
+        private Size size;
         /// <summary>
         /// The price of Mezzorella Sticks.
         /// </summary>
@@ -68,7 +68,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Size of the Side.
         /// </summary>
-        public new Size Size
+        public override Size Size
         {
             get => size;
             set
@@ -109,6 +109,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public MezzorellaSticks()
         {
+            size = Size.Small;
         }
 
         /// <summary>
