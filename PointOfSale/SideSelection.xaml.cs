@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * SideSelection.xaml.cs
+ * Author: Timothy Tucker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +26,23 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        /// <summary>
+        /// Reference to the side being modified.
+        /// </summary>
         public Side Side { get; private set; }
+
+        /// <summary>
+        /// Initializes the side selection page.
+        /// </summary>
         public SideSelection()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Adds the selected side to the order.
+        /// </summary>
+        /// <param name="side">The side being added.</param>
         private void SelectSide(Side side)
         {
             if (DataContext is Order order)
@@ -39,6 +55,10 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Selects size of side.
+        /// </summary>
+        /// <param name="size">The size of the side.</param>
         private void SelectSize(DinoDiner.Menu.Size size)
         {
             if (Side != null)
@@ -47,43 +67,65 @@ namespace PointOfSale
                 NavigationService.Navigate(new MenuCategorySelection());
             }
         }
+
+        /// <summary>
+        /// EventHandler for adding Fryceritops
+        /// to the order list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectFryceritops(object sender, RoutedEventArgs args)
         {
             SelectSide(new Fryceritops());
-            MeteorMacAndCheeseButton.IsEnabled = false;
-            TriceritosButton.IsEnabled = false;
-            MozzerellaSticksButton.IsEnabled = false;
-            FryceritopsButton.IsEnabled = false;
         }
 
+        /// <summary>
+        /// EventHandler for adding Triceritots
+        /// to the order list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectTriceritots(object sender, RoutedEventArgs args)
         {
             SelectSide(new Triceritots());
-            MeteorMacAndCheeseButton.IsEnabled = false;
-            FryceritopsButton.IsEnabled = false;
-            MozzerellaSticksButton.IsEnabled = false;
-            TriceritosButton.IsEnabled = false;
         }
 
+        /// <summary>
+        /// EventHandler for adding MeteorMacAndCheese
+        /// to the order list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectMeteorMacAndCheese(object sender, RoutedEventArgs args)
         {
             SelectSide(new MeteorMacAndCheese());
-            FryceritopsButton.IsEnabled = false;
-            TriceritosButton.IsEnabled = false;
-            MeteorMacAndCheeseButton.IsEnabled = false;
-            MozzerellaSticksButton.IsEnabled = false;
         }
 
+        /// <summary>
+        /// EventHandler for changing size to large.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnMakeLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);
         }
 
+        /// <summary>
+        /// EventHandler for changing size to medium.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnMakeMedium(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Medium);
         }
 
+        /// <summary>
+        /// EventHandler for changing size to small.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnMakeSmall(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Small);

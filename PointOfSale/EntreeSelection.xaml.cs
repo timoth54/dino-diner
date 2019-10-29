@@ -50,6 +50,7 @@ namespace PointOfSale
         protected void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
             SelectEntree(new PrehistoricPBJ());
+            //NavigationService.Navigate(new CustomizePrehistoricPBJ((PrehistoricPBJ)Entree));
         }
 
         protected void OnSelectPterodactylWings(object sender, RoutedEventArgs args)

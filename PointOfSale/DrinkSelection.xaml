@@ -135,19 +135,32 @@
                 <Label Content="Drink Sizes:" Style="{StaticResource generalFormatting}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Small:" Style="{StaticResource RadioText}"/>
-                    <RadioButton x:Name="smallButton" Padding="10,0,0,0"/>
+                    <RadioButton x:Name="smallButton" Padding="10,0,0,0" Checked="OnMakeSmall"/>
                     <TextBlock Text="Medium:" Style="{StaticResource RadioText}"/>
-                    <RadioButton x:Name="mediumButton" Padding="10,0,0,0"/>
+                    <RadioButton x:Name="mediumButton" Padding="10,0,0,0" Checked="OnMakeMedium"/>
                     <TextBlock Text="Large:" Style="{StaticResource RadioText}"/>
-                    <RadioButton x:Name="largeButton"/>
+                    <RadioButton x:Name="largeButton" Checked="OnMakeLarge"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Margin="10" MinHeight="40">
-                <Label Content="Drink Options:" Style="{StaticResource generalFormatting}"/>
-                <Button Content="Add/Remove Lemon" Style="{StaticResource JurassicWoodColoring}" x:Name="LemonButton" Visibility="Hidden"/>
-                <Button Content="Add/Remove Sweetener" Style="{StaticResource JurassicWoodColoring}" x:Name="SweetenerButton" Visibility="Hidden"/>
-                <Button Content="Add/Remove Caffeine" Style="{StaticResource JurassicWoodColoring}" x:Name="CaffeineButton" Visibility="Hidden"/>
-                <Button Content="Change Sodasaurus Flavor" Style="{StaticResource JurassicWoodColoring}" x:Name="FlavorButton" Click="ChangeFlavor"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <Label Content="Options:" Style="{StaticResource generalFormatting}"/>
+                <Button Content="Add/Remove Lemon" Style="{StaticResource JurassicWoodColoring}" x:Name="LemonButton" Visibility="Hidden" Click="OnAddLemon"/>
+                <Button Content="Add/Remove Sweetener" Style="{StaticResource JurassicWoodColoring}" x:Name="SweetenerButton" Visibility="Hidden" Click="OnAddSweetener"/>
+                <Button Content="Add/Remove Caffeine" Style="{StaticResource JurassicWoodColoring}" x:Name="CaffeineButton" Visibility="Hidden" Click="OnRemoveCaffeine"/>
+                <Button Content="Add/Remove Ice" Style="{StaticResource JurassicWoodColoring}" x:Name="IceButton" Visibility="Hidden" Click="OnIce"/>
+                <Button Content="Leave Space For Cream" Style="{StaticResource JurassicWoodColoring}" x:Name="CreamButton" Visibility="Hidden" Click="OnLeaveSpaceForCream"/>
+                <Button Content="Change Flavor" Style="{StaticResource JurassicWoodColoring}" x:Name="FlavorButton" Click="OnChangeFlavor" Visibility="Hidden"/>
             </StackPanel>
         </StackPanel>
         </TextBlock>

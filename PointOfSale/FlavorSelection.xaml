@@ -63,7 +63,7 @@
         </TextBlock>
 
         <!-- Button representations of different combos. -->
-        <Button x:Name="CherryButton" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom">
+        <Button x:Name="CherryButton" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Click="OnSelectCherry">
             <Button.Content>Cherry</Button.Content>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -73,7 +73,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="ChocolateButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+        <Button x:Name="ChocolateButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Click="OnSelectChocolate">
             <Button.Content>Chocolate</Button.Content>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -83,7 +83,7 @@
             </Button.Background>
             <Button.Foreground>White</Button.Foreground>
         </Button>
-        <Button x:Name="ColaButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom">
+        <Button x:Name="ColaButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Click="OnSelectCola">
             <Button.Content>Cola</Button.Content>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -94,7 +94,7 @@
             <Button.Foreground>White</Button.Foreground>
             </Button>
 
-        <Button x:Name="RootBeerButton" Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom">
+        <Button x:Name="RootBeerButton" Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom" Click="OnSelectRootBeer">
             <Button.Content>Root Beer</Button.Content>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -104,7 +104,7 @@
             </Button.Background>
             <Button.Foreground>White</Button.Foreground>
         </Button>
-        <Button x:Name="OrangeButton" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom">
+        <Button x:Name="OrangeButton" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Click="OnSelectOrange">
             <Button.Content>Orange</Button.Content>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -113,7 +113,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="LimeButton" Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom">
+        <Button x:Name="LimeButton" Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Click="OnSelectLime">
             <Button.Content>Lime</Button.Content>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -122,7 +122,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="VanillaButton" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom">
+        <Button x:Name="VanillaButton" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Click="OnSelectVanilla">
             <Button.Content>Vanilla</Button.Content>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
