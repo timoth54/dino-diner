@@ -56,6 +56,7 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CustomizePrehistoricPBJ.xaml.cs">
       <DependentUpon>CustomizePrehistoricPBJ.xaml</DependentUpon>
@@ -151,6 +152,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Milestones\1-create-order-pages.workbook" />
+    <None Include="Milestones\2-user-interaction-part-I.workbook" />
+    <None Include="Milestones\3-user-interaction-part-II.workbook" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,6 +164,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+
     <Resource Include="Assets\Brontowurst.png" />
     <Resource Include="Assets\Dino-Nuggets.png" />
     <Resource Include="Assets\PrehistoricPBJ.png" />
@@ -175,6 +180,10 @@
     <Resource Include="Assets\JurassicJava.png" />
     <Resource Include="Assets\Sodasaurus.png" />
     <Resource Include="Assets\Water.png" />
+    <ProjectReference Include="..\Menu\Menu.csproj">
+      <Project>{2f5f801d-c838-4c96-a2be-a40c4dffb719}</Project>
+      <Name>Menu</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
