@@ -61,7 +61,7 @@ namespace DinoDiner.Menu
         public override double Price
         {
             get;
-            set;
+            protected set;
         }
 
         /// <summary>

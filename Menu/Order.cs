@@ -80,7 +80,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
-            SalesTaxRate = .05;
+            SalesTaxRate = 0;
         }
 
         /// <summary>

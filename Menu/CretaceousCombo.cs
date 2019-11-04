@@ -34,6 +34,11 @@ namespace DinoDiner.Menu
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets or sets the size.
         /// </summary>
@@ -48,6 +53,9 @@ namespace DinoDiner.Menu
                 this.size = value;
                 this.Drink.Size = value;
                 this.Side.Size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
             }
         }
 

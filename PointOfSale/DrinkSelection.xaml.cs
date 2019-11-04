@@ -137,7 +137,7 @@ namespace PointOfSale
         private void OnLeaveSpaceForCream(object sender, RoutedEventArgs args)
         {
             JurassicJava java = (JurassicJava)Drink;
-            java.LeaveSpaceForCream();
+            java.LeaveRoomForCream();
         }
 
         private void OnAddLemon(object sender, RoutedEventArgs args)
