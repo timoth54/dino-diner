@@ -75,6 +75,7 @@ namespace PointOfSale
         protected void OnSelectVelociWrap(object sender, RoutedEventArgs args)
         {
             SelectEntree(new VelociWrap());
+            NavigationService.Navigate(new CustomizeVelociWrap(Entree as VelociWrap));
         }
     }
 }
