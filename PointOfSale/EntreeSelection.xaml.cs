@@ -63,11 +63,13 @@ namespace PointOfSale
         protected void OnSelectSteakosaurusBurger(object sender, RoutedEventArgs args)
         {
             SelectEntree(new SteakosaurusBurger());
+            NavigationService.Navigate(new CustomizeSteakosaurusBurger(Entree as SteakosaurusBurger));
         }
 
         protected void OnSelectTRexKingBurger(object sender, RoutedEventArgs args)
         {
             SelectEntree(new TRexKingBurger());
+            NavigationService.Navigate(new CustomizeTRexKingBurger(Entree as TRexKingBurger));
         }
 
         protected void OnSelectVelociWrap(object sender, RoutedEventArgs args)
