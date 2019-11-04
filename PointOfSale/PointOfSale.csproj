@@ -58,6 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomizeBrontowurst.xaml.cs">
+      <DependentUpon>CustomizeBrontowurst.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeDinoNuggets.xaml.cs">
+      <DependentUpon>CustomizeDinoNuggets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomizePrehistoricPBJ.xaml.cs">
       <DependentUpon>CustomizePrehistoricPBJ.xaml</DependentUpon>
     </Compile>
@@ -78,6 +84,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomizeCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomizeBrontowurst.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomizeDinoNuggets.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,7 +178,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-
     <Resource Include="Assets\Brontowurst.png" />
     <Resource Include="Assets\Dino-Nuggets.png" />
     <Resource Include="Assets\PrehistoricPBJ.png" />

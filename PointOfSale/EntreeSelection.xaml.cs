@@ -40,17 +40,19 @@ namespace PointOfSale
         protected void OnSelectBrontowurst(object sender, RoutedEventArgs args)
         {
             SelectEntree(new Brontowurst());
+            NavigationService.Navigate(new CustomizeBrontowurst(Entree as Brontowurst));
         }
 
         protected void OnSelectDinoNuggets(object sender, RoutedEventArgs args)
         {
             SelectEntree(new DinoNuggets());
+            NavigationService.Navigate(new CustomizeDinoNuggets(Entree as DinoNuggets));
         }
 
         protected void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
             SelectEntree(new PrehistoricPBJ());
-            //NavigationService.Navigate(new CustomizePrehistoricPBJ((PrehistoricPBJ)Entree));
+            NavigationService.Navigate(new CustomizePrehistoricPBJ((PrehistoricPBJ)Entree));
         }
 
         protected void OnSelectPterodactylWings(object sender, RoutedEventArgs args)
