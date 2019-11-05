@@ -15,20 +15,66 @@ namespace DinoDiner.Menu
     /// </summary>
     public class CretaceousCombo : IMenuItem, IOrderItem
     {
+        Drink drink;
+        Side side;
+        Entree entree;
+
         /// <summary>
         /// Gets or sets the entree.
         /// </summary>
-        public Entree Entree { get; set; }
+        public Entree Entree
+        {
+            get
+            {
+                return entree;
+            }
+            protected set
+            {
+                entree = value;
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Ingredients");
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Gets or sets the drink.
         /// </summary>
-        public Drink Drink { get; set; }
+        public Drink Drink
+        {
+            get
+            {
+                return drink;
+            }
+            protected set
+            {
+                drink = value;
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Ingredients");
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Gets or sets the side.
         /// </summary>
-        public Side Side { get; set; }
+        public Side Side
+        {
+            get
+            {
+                return side;
+            }
+            protected set
+            {
+                side = value;
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Ingredients");
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         private Size size = Size.Small;
 
@@ -113,9 +159,9 @@ namespace DinoDiner.Menu
         /// <param name="entree">The entree in the combo.</param>
         public CretaceousCombo(Entree entree)
         {
-            Entree = entree;
-            Side = new Fryceritops();
-            Drink = new Sodasaurus();
+            this.entree = entree;
+            side = new Fryceritops();
+            drink = new Sodasaurus();
         }
 
         /// <summary>

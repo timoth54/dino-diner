@@ -39,6 +39,13 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        //Constuctor that gives reference to combo side.
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.Side = side;
+        }
+
         /// <summary>
         /// Adds the selected side to the order.
         /// </summary>
@@ -47,9 +54,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(side);
-                this.Side = side;
+                if (side == null)
+                {
+                    order.Add(side);
+                    this.Side = side;
+                }
+                else
+                {
+                    this.Side = side;
+                }
                 smallButton.IsEnabled = true;
+                smallButton.IsChecked = true;
                 mediumButton.IsEnabled = true;
                 largeButton.IsEnabled = true;
             }

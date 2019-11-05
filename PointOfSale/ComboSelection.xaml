@@ -21,8 +21,7 @@
                 <Setter Property="BorderBrush" Value="Black"/>
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="BorderThickness" Value="3,0,0,5"/>
-                <EventSetter Event="Click" Handler="CustomizeCombo"/>
-                
+
                 <Setter Property="Background">
                     <Setter.Value>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -78,7 +77,7 @@
         </TextBlock>
         
         <!-- Button representations of different combos.-->
-        <Button x:Name="BrontowurstButton" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
+        <Button x:Name="BrontowurstButton" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Click="OnBrontowurstComboClick">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/Brontowurst.png"/>
@@ -87,7 +86,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="DinoNuggetsButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top">
+        <Button x:Name="DinoNuggetsButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Click="OnDinoNuggetComboClick">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/Dino-Nuggets.png"/>
@@ -95,7 +94,7 @@
                 <TextBlock>Dino-Nuggets Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="SteakosaurusBurgerButton" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom">
+        <Button x:Name="SteakosaurusBurgerButton" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Click="OnSteakosaurusBurgerComboClick">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/SteakosaurusBurger.png"/>
@@ -103,7 +102,7 @@
                 <TextBlock>Steakosaurus Burger Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="TRexKingBurgerButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+        <Button x:Name="TRexKingBurgerButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Click="OnTRexKingBurgerComboClick">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/TRexKingBurger.png"/>
@@ -111,7 +110,7 @@
                 <TextBlock>T-Rex King Burger Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="PterodactylWingsButton" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top">
+        <Button x:Name="PterodactylWingsButton" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Click="OnPterodactylWingsComboClick">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/PterodactylWings.png"/>
@@ -119,7 +118,7 @@
                 <TextBlock>Pterodactyl Wings Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="PrehistoricPBJButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top">
+        <Button x:Name="PrehistoricPBJButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Click="OnPrehistoricPBJComboClick">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/PrehistoricPBJ.png"/>
@@ -127,7 +126,7 @@
                 <TextBlock>Prehistoric PB&amp;J Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="VelociWrapButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom">
+        <Button x:Name="VelociWrapButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Click="OnVelociWrapComboClick">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/Veloci-Wrap.png"/>

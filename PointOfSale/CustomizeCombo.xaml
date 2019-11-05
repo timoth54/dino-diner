@@ -45,7 +45,7 @@
                 <GradientStop Color="ForestGreen" Offset="1"/>
             </LinearGradientBrush>
         </DockPanel.Background>
-
+        
         <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Top" DockPanel.Dock="Top">
             <Label>
                 <Label.FontFamily>Courier New</Label.FontFamily>
@@ -75,17 +75,22 @@
             <Label HorizontalAlignment="Center" Style="{StaticResource generalFormatting}">
                 <Label.Content>
                     <TextBlock>
+                        Entree
+                        <Separator Width="300"/>
                         Side
                         <Separator Width="300" Height="0"/>
                         Drink
                     </TextBlock>
                 </Label.Content>
             </Label>
+            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="200">
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="Fryceritops"
-                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Click="SelectSide"/>
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="Sodasaurus"
-                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Click="SelectDrink"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="{Binding Path=Entree}"
+                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="{Binding Path=Side}"
+                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="{Binding Path=Drink}"
+                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
             </StackPanel>
         </StackPanel>
     </DockPanel>
