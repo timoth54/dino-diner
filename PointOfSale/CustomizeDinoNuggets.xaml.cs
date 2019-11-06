@@ -37,5 +37,10 @@ namespace PointOfSale
         {
             dn.AddNugget();
         }
+
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

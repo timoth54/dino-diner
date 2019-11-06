@@ -49,7 +49,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -66,12 +65,8 @@
         <RadioButton Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Content="Medium" Checked="OnMakeMedium" Name="mediumButton"/>
         <RadioButton Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Content="Large" Checked="OnMakeLarge" Name="largeButton"/>
 
-        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="Entree"/>
-        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="Side"/>
-        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Text="Drink"/>
-
-        <Button Grid.Row="4" Content="{Binding Path=Entree}"/>
-        <Button Grid.Row="4" Grid.Column="1" Content="{Binding Path=Side}"/>
-        <Button Grid.Row="4" Grid.Column="2" Content="{Binding Path=Drink}"/>
+        <Button Grid.Row="2" Content="Customize Entree" Click="OnCustomizeEntree"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Customize Side"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="Customize Drink"/>
     </Grid>
 </Page>

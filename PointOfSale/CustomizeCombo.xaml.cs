@@ -35,10 +35,41 @@ namespace PointOfSale
         {
             InitializeComponent();
             this.combo = combo;
-            smallButton.IsEnabled = true;
             smallButton.IsChecked = true;
-            mediumButton.IsEnabled = true;
-            largeButton.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Opens appropriate page for customizing
+        /// entree.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnCustomizeEntree(object sender, RoutedEventArgs args)
+        {
+            if (combo.Entree is Brontowurst brontowurst)
+            {
+                NavigationService.Navigate(new CustomizeBrontowurst(brontowurst));
+            }
+            else if (combo.Entree is DinoNuggets dn)
+            {
+                NavigationService.Navigate(new CustomizeDinoNuggets(dn));
+            }
+            else if (combo.Entree is PrehistoricPBJ prehistoricPBJ)
+            {
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(prehistoricPBJ));
+            }
+            else if (combo.Entree is SteakosaurusBurger sb)
+            {
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb));
+            }
+            else if (combo.Entree is TRexKingBurger rex)
+            {
+                NavigationService.Navigate(new CustomizeTRexKingBurger(rex));
+            }
+            else if (combo.Entree is VelociWrap vw)
+            {
+                NavigationService.Navigate(new CustomizeVelociWrap(vw));
+            }
         }
 
         /// <summary>

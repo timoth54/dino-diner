@@ -44,5 +44,10 @@ namespace PointOfSale
         {
             brontowurst.HoldPeppers();
         }
+
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
