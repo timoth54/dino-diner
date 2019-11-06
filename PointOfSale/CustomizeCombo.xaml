@@ -15,12 +15,12 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="MinWidth" Value="300"/>
-            <Setter Property="MinHeight" Value="180"/>
             <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="BorderThickness" Value="3,0,0,5"/>
+            <Setter Property="MinWidth" Value="200"/>
+            <Setter Property="MinHeight" Value="220"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -31,67 +31,47 @@
             </Setter>
             <Setter Property="Margin" Value="10,10,10,10"/>
         </Style>
-        <Style TargetType="Label" x:Key="generalFormatting">
+        <Style TargetType="TextBlock" x:Key="titleFormatting">
             <Setter Property="FontFamily" Value="Times New Roman"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
         </Style>
     </Page.Resources>
-    <DockPanel>
-        <DockPanel.Background>
+    <Grid>
+        <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="ForestGreen" Offset="0"/>
                 <GradientStop Color="White" Offset=".5"/>
                 <GradientStop Color="ForestGreen" Offset="1"/>
             </LinearGradientBrush>
-        </DockPanel.Background>
-        
-        <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Top" DockPanel.Dock="Top">
-            <Label>
-                <Label.FontFamily>Courier New</Label.FontFamily>
-                <Label.FontSize>20</Label.FontSize>
-                <Label.FontWeight>Bold</Label.FontWeight>
-                <Label.FontStyle>Italic</Label.FontStyle>
-                <Label.Content>
-                    <TextBlock>
-                        Add To Order:
-                        <LineBreak/>
-                        Customize Combo
-                    </TextBlock>
-                </Label.Content>
-            </Label>
-            <Label Content="Combo Size" HorizontalAlignment="Center" Style="{StaticResource generalFormatting}"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Small:" Style="{StaticResource RadioText}"/>
-                <RadioButton x:Name="smallButton" Padding="10,0,0,0"/>
-                <TextBlock Text="Medium:" Style="{StaticResource RadioText}"/>
-                <RadioButton x:Name="mediumButton" Padding="10,0,0,0"/>
-                <TextBlock Text="Large:" Style="{StaticResource RadioText}"/>
-                <RadioButton x:Name="largeButton"/>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel>
-            <Separator Width="Auto" Background="Black" Height="10"/>
-            <Label HorizontalAlignment="Center" Style="{StaticResource generalFormatting}">
-                <Label.Content>
-                    <TextBlock>
-                        Entree
-                        <Separator Width="300"/>
-                        Side
-                        <Separator Width="300" Height="0"/>
-                        Drink
-                    </TextBlock>
-                </Label.Content>
-            </Label>
-            
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="200">
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="{Binding Path=Entree}"
-                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="{Binding Path=Side}"
-                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Content="{Binding Path=Drink}"
-                        FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
-            </StackPanel>
-        </StackPanel>
-    </DockPanel>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Style="{StaticResource titleFormatting}" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+            Add To Order: Customize Combo
+        </TextBlock>
+
+        <RadioButton Grid.Row="1" HorizontalAlignment="Right" Content="Small" Checked="OnMakeSmall" Name="smallButton"/>
+        <RadioButton Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Content="Medium" Checked="OnMakeMedium" Name="mediumButton"/>
+        <RadioButton Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Content="Large" Checked="OnMakeLarge" Name="largeButton"/>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="Entree"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="Side"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Text="Drink"/>
+
+        <Button Grid.Row="4" Content="{Binding Path=Entree}"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="{Binding Path=Side}"/>
+        <Button Grid.Row="4" Grid.Column="2" Content="{Binding Path=Drink}"/>
+    </Grid>
 </Page>

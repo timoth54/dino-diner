@@ -26,8 +26,7 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-
-        CretaceousCombo Combo { get; set; }
+        private CretaceousCombo combo;
 
         /// <summary>
         /// Creates a new page for combo customization.
@@ -35,6 +34,53 @@ namespace PointOfSale
         public CustomizeCombo(CretaceousCombo combo)
         {
             InitializeComponent();
+            this.combo = combo;
+            smallButton.IsEnabled = true;
+            smallButton.IsChecked = true;
+            mediumButton.IsEnabled = true;
+            largeButton.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Selects size of combo.
+        /// </summary>
+        /// <param name="size">The size of the side.</param>
+        private void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if (combo != null)
+            {
+                this.combo.Size = size;
+            }
+        }
+
+        /// <summary>
+        /// EventHandler for changing size to large.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        protected void OnMakeLarge(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Large);
+        }
+
+        /// <summary>
+        /// EventHandler for changing size to medium.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        protected void OnMakeMedium(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Medium);
+        }
+
+        /// <summary>
+        /// EventHandler for changing size to small.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        protected void OnMakeSmall(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Small);
         }
     }
 }

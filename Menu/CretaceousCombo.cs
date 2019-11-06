@@ -15,9 +15,14 @@ namespace DinoDiner.Menu
     /// </summary>
     public class CretaceousCombo : IMenuItem, IOrderItem
     {
-        Drink drink;
-        Side side;
-        Entree entree;
+        //Private backing fields
+        private Entree entree;
+        private Drink drink;
+        private Side side;
+        private Size size = Size.Small;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
 
         /// <summary>
         /// Gets or sets the entree.
@@ -28,9 +33,10 @@ namespace DinoDiner.Menu
             {
                 return entree;
             }
-            protected set
+             set
             {
                 entree = value;
+                entree.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChange("Price");
                 NotifyOfPropertyChange("Special");
                 NotifyOfPropertyChange("Ingredients");
@@ -47,9 +53,10 @@ namespace DinoDiner.Menu
             {
                 return drink;
             }
-            protected set
+            set
             {
                 drink = value;
+                drink.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChange("Price");
                 NotifyOfPropertyChange("Special");
                 NotifyOfPropertyChange("Ingredients");
@@ -66,23 +73,15 @@ namespace DinoDiner.Menu
             {
                 return side;
             }
-            protected set
+            set
             {
                 side = value;
+                side.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChange("Price");
                 NotifyOfPropertyChange("Special");
                 NotifyOfPropertyChange("Ingredients");
                 NotifyOfPropertyChange("Description");
             }
-        }
-
-        private Size size = Size.Small;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
@@ -99,9 +98,9 @@ namespace DinoDiner.Menu
                 this.size = value;
                 this.Drink.Size = value;
                 this.Side.Size = value;
-                NotifyOfPropertyChange("Description");
                 NotifyOfPropertyChange("Price");
                 NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -143,28 +142,6 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// String representation of CretaceousCombo object.
-        /// </summary>
-        /// <returns>Name of the combo.</returns>
-        public override string ToString()
-        {
-            return String.Format($"{Entree} Combo");
-        }
-
-        private CretaceousCombo() { }
-
-        /// <summary>
-        /// Makes a new Cretaceous Combo.
-        /// </summary>
-        /// <param name="entree">The entree in the combo.</param>
-        public CretaceousCombo(Entree entree)
-        {
-            this.entree = entree;
-            side = new Fryceritops();
-            drink = new Sodasaurus();
-        }
-
-        /// <summary>
         /// Gets a description of the combo.
         /// </summary>
         public string Description
@@ -185,12 +162,57 @@ namespace DinoDiner.Menu
             {
                 List<string> specials = new List<string>();
                 specials.AddRange(Entree.Special);
-                specials.Add(Side.ToString());
+                specials.Add(Side.Description);
                 specials.AddRange(Side.Special);
-                specials.Add(Drink.ToString());
+                specials.Add(Drink.Description);
                 specials.AddRange(Drink.Special);
                 return specials.ToArray();
             }
+        }
+
+        /// <summary>
+        /// Makes a new Cretaceous Combo.
+        /// </summary>
+        /// <param name="entree">The entree in the combo.</param>
+        public CretaceousCombo(Entree entree)
+        {
+            Entree = entree;
+            entree.PropertyChanged += OnItemPropertyChanged;
+            side = new Fryceritops();
+            drink = new Sodasaurus();
+        }
+
+        /// <summary>
+        /// String representation of CretaceousCombo object.
+        /// </summary>
+        /// <returns>Name of the combo.</returns>
+        public override string ToString()
+        {
+            return String.Format($"{Entree} Combo");
+        }
+
+        /// <summary>
+        /// Notifies of when a property changes.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Notifies of all properties that change
+        /// in an item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void OnItemPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            NotifyOfPropertyChange("Size");
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+            NotifyOfPropertyChange("Calories");
         }
     }
 }
