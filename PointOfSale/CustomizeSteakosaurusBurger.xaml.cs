@@ -47,5 +47,10 @@ namespace PointOfSale
         {
             sb.HoldMustard();
         }
+
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

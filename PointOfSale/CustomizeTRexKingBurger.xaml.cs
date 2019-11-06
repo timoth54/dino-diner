@@ -60,5 +60,10 @@ namespace PointOfSale
         {
             trex.HoldTomato();
         }
+
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

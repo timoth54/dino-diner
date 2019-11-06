@@ -25,5 +25,8 @@
         <Button Click="OnHoldJelly" Grid.Column="1">
             Hold Jelly
         </Button>
+        <Button Click="OnDone" Grid.Row="4" Grid.Column="1" Height="20">
+            Done
+        </Button>
     </Grid>
 </Page>

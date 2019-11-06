@@ -39,5 +39,10 @@ namespace PointOfSale
         {
             pbj.HoldJelly();
         }
+
+        private void OnDone (object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

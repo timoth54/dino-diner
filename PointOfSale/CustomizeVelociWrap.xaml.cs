@@ -42,5 +42,10 @@ namespace PointOfSale
         {
             vw.HoldCheese();
         }
+
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

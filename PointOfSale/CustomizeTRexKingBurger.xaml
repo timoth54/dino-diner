@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Resources>
-            <Style TargetType="Button">
+            <Style TargetType="Button" x:Key="special">
                 <Setter Property="BorderBrush" Value="Black"/>
                 <Setter Property="BorderThickness" Value="3,0,0,5"/>
                 <Setter Property="Background">
@@ -56,29 +56,32 @@
             <TextBlock.FontStyle>Italic</TextBlock.FontStyle>
         </TextBlock>
 
-        <Button Click="OnHoldBun" Grid.Row="1">
+        <Button Click="OnHoldBun" Grid.Row="1" Style="{StaticResource special}">
             Hold Bun
         </Button>
-        <Button Click="OnHoldOnion" Grid.Row="1" Grid.Column="1">
+        <Button Click="OnHoldOnion" Grid.Row="1" Grid.Column="1" Style="{StaticResource special}">
             Hold Onion
         </Button>
-        <Button Click="OnHoldMustard" Grid.Row="1" Grid.Column="2">
+        <Button Click="OnHoldMustard" Grid.Row="1" Grid.Column="2" Style="{StaticResource special}">
             Hold Mustard
         </Button>
-        <Button Click="OnHoldPickle" Grid.Row="2">
+        <Button Click="OnHoldPickle" Grid.Row="2" Style="{StaticResource special}">
             Hold Pickle
         </Button>
-        <Button Click="OnHoldMayo" Grid.Row="2" Grid.Column="1">
+        <Button Click="OnHoldMayo" Grid.Row="2" Grid.Column="1" Style="{StaticResource special}">
             Hold Mayo
         </Button>
-        <Button Click="OnHoldLettuce" Grid.Row="2" Grid.Column="2">
+        <Button Click="OnHoldLettuce" Grid.Row="2" Grid.Column="2" Style="{StaticResource special}">
             Hold Lettuce
         </Button>
-        <Button Click="OnHoldOnion" Grid.Row="3">
+        <Button Click="OnHoldOnion" Grid.Row="3" Style="{StaticResource special}">
             Hold Onion
         </Button>
-        <Button Click="OnHoldTomato" Grid.Row="3" Grid.Column="1">
+        <Button Click="OnHoldTomato" Grid.Row="3" Grid.Column="1" Style="{StaticResource special}">
             Hold Tomato
+        </Button>
+        <Button Click="OnDone" Grid.Row="3" Grid.Column="2" Height="40" Width="180">
+            Done
         </Button>
     </Grid>
 </Page>
