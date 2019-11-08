@@ -137,7 +137,7 @@ namespace PointOfSale
         {
             if (Combo != null)
             {
-                NavigationService.Navigate(new CustomizeCombo(Combo));
+                NavigationService.Navigate(new ComboCustomization(Combo));
             }
             else
             {

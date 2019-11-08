@@ -1,5 +1,5 @@
 ﻿/*
- * CustomizeCombo.xaml.cs
+ * ComboCustomization.xaml.cs
  * Author: Timothy Tucker
  */
 
@@ -22,16 +22,16 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizeCombo.xaml
+    /// Interaction logic for ComboCustomization.xaml
     /// </summary>
-    public partial class CustomizeCombo : Page
+    public partial class ComboCustomization : Page
     {
         private CretaceousCombo combo;
 
         /// <summary>
         /// Creates a new page for combo customization.
         /// </summary>
-        public CustomizeCombo(CretaceousCombo combo)
+        public ComboCustomization(CretaceousCombo combo)
         {
             InitializeComponent();
             this.combo = combo;

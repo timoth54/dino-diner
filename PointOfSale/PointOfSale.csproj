@@ -92,7 +92,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomizeCombo.xaml">
+    <Page Include="ComboCustomization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,8 +143,8 @@
     <Compile Include="ComboSelection.xaml.cs">
       <DependentUpon>ComboSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomizeCombo.xaml.cs">
-      <DependentUpon>CustomizeCombo.xaml</DependentUpon>
+    <Compile Include="ComboCustomization.xaml.cs">
+      <DependentUpon>ComboCustomization.xaml</DependentUpon>
     </Compile>
     <Compile Include="EntreeSelection.xaml.cs">
       <DependentUpon>EntreeSelection.xaml</DependentUpon>

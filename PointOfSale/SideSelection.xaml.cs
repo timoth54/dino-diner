@@ -80,7 +80,7 @@ namespace PointOfSale
             if (Combo != null)
             {
                 Combo.Side.Size = size;
-                NavigationService.Navigate(new CustomizeCombo(Combo));
+                NavigationService.Navigate(new ComboCustomization(Combo));
             }
             else
             {
