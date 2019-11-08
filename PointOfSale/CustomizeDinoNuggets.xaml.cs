@@ -27,17 +27,32 @@ namespace PointOfSale
     public partial class CustomizeDinoNuggets : Page
     {
         private DinoNuggets dn;
+
+        /// <summary>
+        /// Initializes Dino Nuggets customization page.
+        /// </summary>
+        /// <param name="dn"></param>
         public CustomizeDinoNuggets(DinoNuggets dn)
         {
             InitializeComponent();
             this.dn = dn;
         }
 
+        /// <summary>
+        /// Adds nugget.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnAddNugget(object sender, RoutedEventArgs args)
         {
             dn.AddNugget();
         }
 
+        /// <summary>
+        /// Returns to previous page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();

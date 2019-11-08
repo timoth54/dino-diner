@@ -35,7 +35,6 @@ namespace PointOfSale
         {
             InitializeComponent();
             this.combo = combo;
-            smallButton.IsChecked = true;
         }
 
         /// <summary>
@@ -70,6 +69,28 @@ namespace PointOfSale
             {
                 NavigationService.Navigate(new CustomizeVelociWrap(vw));
             }
+        }
+
+        /// <summary>
+        /// Opens appropriate page for customizing
+        /// side.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnCustomizeSide(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new SideSelection(combo));
+        }
+
+        /// <summary>
+        /// Opens appropriate page for customizing
+        /// side.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnCustomizeDrink(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new DrinkSelection(combo));
         }
 
         /// <summary>

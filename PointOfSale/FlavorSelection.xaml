@@ -131,5 +131,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Button Click="OnDone" Grid.Row="3" Grid.Column="1" Width="140">
+            Done
+        </Button>
     </Grid>
 </Page>

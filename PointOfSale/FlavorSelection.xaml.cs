@@ -32,13 +32,30 @@ namespace PointOfSale
         public Sodasaurus Sodasaurus { get; private set; }
 
         /// <summary>
+        /// Reference to the combo, who's drink is being customized.
+        /// </summary>
+        public CretaceousCombo Combo { get; set; }
+
+        /// <summary>
         /// Initializes the flavor selection page.
         /// </summary>
-        /// <param name="sodasaurus"></param>
+        /// <param name="sodasaurus">The sodasaurus being customized.</param>
         public FlavorSelection(Sodasaurus sodasaurus)
         {
             InitializeComponent();
             Sodasaurus = sodasaurus;
+        }
+
+        /// <summary>
+        /// Intializes the flavor selection page
+        /// to customize the a combo's drink.
+        /// </summary>
+        /// <param name="combo">The combo being customized.</param>
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            Combo = combo;
+            Sodasaurus = (Sodasaurus)combo.Drink;
         }
 
         /// <summary>
@@ -52,7 +69,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Change Sodasaurus flavor tp chocolate.
+        /// Change Sodasaurus flavor to chocolate.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -109,6 +126,23 @@ namespace PointOfSale
         private void OnSelectRootBeer(object sender, RoutedEventArgs args)
         {
             Sodasaurus.Flavor = SodasaurusFlavor.RootBeer;
+        }
+
+        /// <summary>
+        /// Navigates to the previous page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            if (Combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(Combo));
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

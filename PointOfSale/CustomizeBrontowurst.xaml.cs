@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * CustomizeBrontowurst.xaml.cs
+ * Author: Timothy Tucker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,21 +35,41 @@ namespace PointOfSale
             this.brontowurst = brontowurst;
         }
 
+        /// <summary>
+        /// Removes bun.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnHoldBun(object sender, RoutedEventArgs e)
         {
             brontowurst.HoldBun();
         }
 
+        /// <summary>
+        /// Removes onion.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldOnion(object sender, RoutedEventArgs args)
         {
             brontowurst.HoldOnion();
         }
 
+        /// <summary>
+        /// Removes pepper.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldPeppers(object sender, RoutedEventArgs args)
         {
             brontowurst.HoldPeppers();
         }
 
+        /// <summary>
+        /// Returns to previous page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();

@@ -97,7 +97,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="MozzerellaSticksButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+        <Button x:Name="MozzerellaSticksButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Click="OnMozzerellaSticks">
             <StackPanel>
                 <TextBlock>
                     <Image Source="Assets/MozzerellaSticks.png"/>

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * DrinkSelection.xaml.cs
+ * Author: Timothy Tucker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,43 +26,101 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
 
-        public Drink Drink { get; private set; }
+        /// <summary>
+        /// Reference to combo.
+        /// </summary>
+        public CretaceousCombo Combo { get; set; }
 
+        /// <summary>
+        /// Reference to currently selected drink.
+        /// </summary>
+        public Drink Drink { get; set; }
+
+        /// <summary>
+        /// Initializes drink selection page.
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initializes drink selection page
+        /// for customizing combo's drink.
+        /// </summary>
+        /// <param name="combo">Combo being customized.</param>
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            Combo = combo;
+        }
+
+        /// <summary>
+        /// Selects drink.
+        /// </summary>
+        /// <param name="drink">Drink selected.</param>
         private void SelectDrink(Drink drink)
         {
             if (DataContext is Order order)
             {
-                order.Add(drink);
-                this.Drink = drink;
+                if (Combo != null)
+                {
+                    Combo.Drink = drink;
+                    Drink = drink;
+                }
+                else
+                {
+                    order.Add(drink);
+                    Drink = drink;
+                }
                 smallButton.IsEnabled = true;
+                smallButton.IsChecked = true;
                 mediumButton.IsEnabled = true;
                 largeButton.IsEnabled = true;
             }
         }
 
+        /// <summary>
+        /// Changes size of drink.
+        /// </summary>
+        /// <param name="size">Size selected.</param>
         private void SelectSize(DinoDiner.Menu.Size size)
         {
-            if (Drink != null)
+            if (Combo != null)
             {
-                this.Drink.Size = size;
+                Combo.Drink.Size = size;
+            }
+            else
+            {
+                Drink.Size = size;
             }
         }
 
+        /// <summary>
+        /// Makes drink large-sized
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnMakeLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);
         }
 
+        /// <summary>
+        /// Makes drink medium-sized.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnMakeMedium(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Medium);
         }
 
+        /// <summary>
+        /// Makes drink small-sized.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnMakeSmall(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Small);
@@ -128,18 +191,33 @@ namespace PointOfSale
             SelectDrink(new Water());
         }
 
+        /// <summary>
+        /// Action for decaf button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnRemoveCaffeine(object sender, RoutedEventArgs args)
         {
             JurassicJava java = (JurassicJava)Drink;
             java.Decaf = true;
         }
 
+        /// <summary>
+        /// Action for cream button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnLeaveSpaceForCream(object sender, RoutedEventArgs args)
         {
             JurassicJava java = (JurassicJava)Drink;
             java.LeaveRoomForCream();
         }
 
+        /// <summary>
+        /// Action for lemon button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnAddLemon(object sender, RoutedEventArgs args)
         {
             if (Drink is Water water)
@@ -153,6 +231,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Action for ice button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnIce(object sender, RoutedEventArgs args)
         {
             if (Drink is Water water)
@@ -167,22 +250,40 @@ namespace PointOfSale
             {
                 java.AddIce();
             }
-            else
+            else if (Drink is Sodasaurus soda)
             {
-                Sodasaurus soda = (Sodasaurus)Drink;
                 soda.HoldIce();
             }
         }
 
+        /// <summary>
+        /// Action for sweetner button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnAddSweetener(object sender, RoutedEventArgs args)
         {
             Tyrannotea tea = (Tyrannotea)Drink;
             tea.Sweet = true;
         }
 
+        /// <summary>
+        /// Action for change flavor button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnChangeFlavor(object sender, RoutedEventArgs e)
         {
+            if (Combo != null)
+            {
+                NavigationService.Navigate(new FlavorSelection(Combo));
+            }
             NavigationService.Navigate(new FlavorSelection((Sodasaurus)Drink));
+        }
+
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
         }
     }
 }

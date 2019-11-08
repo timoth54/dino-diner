@@ -1,4 +1,9 @@
 ﻿using System;
+/*
+ * CustomizeSteakosaurusBurger.xaml.cs
+ * Author: Timothy Tucker
+ */
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,26 +33,51 @@ namespace PointOfSale
             this.sb = sb;
         }
 
+        /// <summary>
+        /// Removes bun.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldBun(object sender, RoutedEventArgs args)
         {
             sb.HoldBun();
         }
 
+        /// <summary>
+        /// Removes pickle.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldPickle(object sender, RoutedEventArgs args)
         {
             sb.HoldPickle();
         }
 
+        /// <summary>
+        /// Removes ketchup.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldKetchup(object sender, RoutedEventArgs args)
         {
             sb.HoldKetchup();
         }
 
+        /// <summary>
+        /// Removes mustard.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldMustard(object sender, RoutedEventArgs args)
         {
             sb.HoldMustard();
         }
 
+        /// <summary>
+        /// Returns to previous page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();

@@ -80,6 +80,7 @@
             <RowDefinition/>
             <RowDefinition Height="3*"/>
             <RowDefinition/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Add To Order:&#10;Drink Selection" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="300,0" 
                        Grid.ColumnSpan="2" Grid.Column="0">
@@ -155,14 +156,17 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
                 <Label Content="Options:" Style="{StaticResource generalFormatting}"/>
-                <Button Content="Add/Remove Lemon" Style="{StaticResource JurassicWoodColoring}" x:Name="LemonButton" Visibility="Hidden" Click="OnAddLemon"/>
-                <Button Content="Add/Remove Sweetener" Style="{StaticResource JurassicWoodColoring}" x:Name="SweetenerButton" Visibility="Hidden" Click="OnAddSweetener"/>
-                <Button Content="Add/Remove Caffeine" Style="{StaticResource JurassicWoodColoring}" x:Name="CaffeineButton" Visibility="Hidden" Click="OnRemoveCaffeine"/>
+                <Button Content="Add Lemon" Style="{StaticResource JurassicWoodColoring}" x:Name="LemonButton" Visibility="Hidden" Click="OnAddLemon"/>
+                <Button Content="Add Sweetener" Style="{StaticResource JurassicWoodColoring}" x:Name="SweetenerButton" Visibility="Hidden" Click="OnAddSweetener"/>
+                <Button Content="Remove Caffeine" Style="{StaticResource JurassicWoodColoring}" x:Name="CaffeineButton" Visibility="Hidden" Click="OnRemoveCaffeine"/>
                 <Button Content="Add/Remove Ice" Style="{StaticResource JurassicWoodColoring}" x:Name="IceButton" Visibility="Hidden" Click="OnIce"/>
                 <Button Content="Leave Space For Cream" Style="{StaticResource JurassicWoodColoring}" x:Name="CreamButton" Visibility="Hidden" Click="OnLeaveSpaceForCream"/>
                 <Button Content="Change Flavor" Style="{StaticResource JurassicWoodColoring}" x:Name="FlavorButton" Click="OnChangeFlavor" Visibility="Hidden"/>
             </StackPanel>
         </StackPanel>
         </TextBlock>
+        <Button Click="OnDone" Grid.Row="5" Grid.ColumnSpan="2" Height="20" Width="140">
+            Done
+        </Button>
     </Grid>
 </Page>

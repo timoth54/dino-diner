@@ -27,9 +27,11 @@ namespace PointOfSale
     public partial class SideSelection : Page
     {
         /// <summary>
-        /// Reference to the side being modified.
+        /// Reference to the combo being modified.
         /// </summary>
-        public Side Side { get; private set; }
+        private CretaceousCombo Combo { get; set; }
+
+        private Side side;
 
         /// <summary>
         /// Initializes the side selection page.
@@ -39,11 +41,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        //Constuctor that gives reference to combo side.
-        public SideSelection(Side side)
+        //Constuctor that takes reference of a side.
+        public SideSelection(CretaceousCombo combo)
         {
             InitializeComponent();
-            this.Side = side;
+            Combo = combo;
         }
 
         /// <summary>
@@ -54,17 +56,16 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if (side == null)
+                if (Combo != null)
                 {
-                    order.Add(side);
-                    this.Side = side;
+                    Combo.Side = side;
                 }
                 else
                 {
-                    this.Side = side;
+                    this.side = side;
+                    order.Add(side);
                 }
                 smallButton.IsEnabled = true;
-                smallButton.IsChecked = true;
                 mediumButton.IsEnabled = true;
                 largeButton.IsEnabled = true;
             }
@@ -76,10 +77,14 @@ namespace PointOfSale
         /// <param name="size">The size of the side.</param>
         private void SelectSize(DinoDiner.Menu.Size size)
         {
-            if (Side != null)
+            if (Combo != null)
             {
-                this.Side.Size = size;
-                NavigationService.Navigate(new MenuCategorySelection());
+                Combo.Side.Size = size;
+                NavigationService.Navigate(new CustomizeCombo(Combo));
+            }
+            else
+            {
+                side.Size = size;
             }
         }
 
@@ -103,6 +108,17 @@ namespace PointOfSale
         protected void OnSelectTriceritots(object sender, RoutedEventArgs args)
         {
             SelectSide(new Triceritots());
+        }
+
+        /// <summary>
+        /// EventHandler for adding MozzerolaSticks
+        /// to the order list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        protected void OnMozzerellaSticks(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MezzorellaSticks());
         }
 
         /// <summary>
