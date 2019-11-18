@@ -36,24 +36,17 @@ namespace DinoDiner.Menu
             }
             set
             {
-                sweet = value;
-                if (sweet)
+                if (sweet == false && value == true)
                 {
                     this.Calories = this.Calories * 2;
+                    sweet = value;
                 }
                 else
                 {
-                    if (this.Size == Size.Small)
+                    if (sweet == true && value == false)
                     {
-                        this.Calories = 8;
-                    }
-                    else if (this.Size == Size.Medium)
-                    {
-                        this.Calories = 16;
-                    }
-                    else
-                    {
-                        this.Calories = 32;
+                        this.Calories = this.Calories / 2;
+                        sweet = value;
                     }
                 }
 
