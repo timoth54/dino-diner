@@ -12,8 +12,25 @@ namespace Website.Pages
     {
         public Menu Menu { get; } = new Menu();
 
+        [BindProperty]
+        public List<string> menuCategory { get; set; } = new List<string>();
+
+        [BindProperty]
+        public double minimumPrice { get; set; } = 0;
+
+        [BindProperty]
+        public double maximumPrice { get; set; } = 10;
+
+        [BindProperty]
+        public List<string> excludeIngredient { get; set; } = new List<string>();
+
         public void OnGet()
         { 
+        }
+
+        public void OnPost()
+        {
+            Menu menu = new Menu();
         }
     }
 }

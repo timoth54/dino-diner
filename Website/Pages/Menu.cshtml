@@ -4,81 +4,519 @@
 	ViewData["Title"] = "Menu";
 }
 
-<h1>Menu</h1>
-<h2>Combos</h2>
-@foreach (var combo in @Model.Menu.AvailableCombos)
-{
-	<div class="menu-item">
-		<p>
-			Name: @combo.Description
+<div id="container">
+    <div id="menu">
+        <h1>Menu</h1>
+
+        @if (Model.menuCategory.Contains("Combo") && Model.menuCategory.Count > 0)
+        {
+
+            <h2>Combos</h2>
+            foreach (var combo in @Model.Menu.AvailableCombos)
+            {
+                if (combo.Price >= Model.minimumPrice && combo.Price <= Model.maximumPrice)
+                {
+                    if (Model.excludeIngredient.Count > 0)
+                    {
+                        foreach (string i in Model.excludeIngredient)
+                        {
+                            if (!combo.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        Name: @combo.Description
+                                        <br />
+                                        Price: $@combo.Price
+                                        <br />
+                                        Calories: @combo.Calories
+                                        <br />
+                                        Ingredients: @foreach (var ingredient in combo.Ingredients)
+                                        {
+                                            @(ingredient + ", ")
+                                        }
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                if (combo.Ingredients.Contains(i))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="menu-item">
+                            <p>
+                                Name: @combo.Description
+                                <br />
+                                Price: $@combo.Price
+                                <br />
+                                Calories: @combo.Calories
+                                <br />
+                                Ingredients: @foreach (var ingredient in combo.Ingredients)
+                                {
+                                    @(ingredient + ", ")
+                                }
+                            </p>
+                        </div>
+                    }
+
+                }
+            }
+        }
+
+        @if (Model.menuCategory.Contains("Entree") && Model.menuCategory.Count > 0)
+        {
+            <h2>Entrees</h2>
+            @foreach (var entree in @Model.Menu.AvailableEntrees)
+            {
+                @if (entree.Price >= Model.minimumPrice && entree.Price <= Model.maximumPrice)
+                {
+                    if (Model.excludeIngredient.Count > 0)
+                    {
+                        foreach (string i in Model.excludeIngredient)
+                        {
+                            if (!entree.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        Name: @entree.Description
+                                        <br />
+                                        Price: $@entree.Price
+                                        <br />
+                                        Calories: @entree.Calories
+                                        <br />
+                                        Ingredients: @foreach (var ingredient in entree.Ingredients)
+                                        {
+                                            @(ingredient + ", ")
+                                        }
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                if (entree.Ingredients.Contains(i))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="menu-item">
+                            <p>
+                                Name: @entree.Description
+                                <br />
+                                Price: $@entree.Price
+                                <br />
+                                Calories: @entree.Calories
+                                <br />
+                                Ingredients: @foreach (var ingredient in entree.Ingredients)
+                                {
+                                    @(ingredient + ", ")
+                                }
+                            </p>
+                        </div>
+                    }
+                }
+            }
+        }
+
+        @if (Model.menuCategory.Contains("Side") && Model.menuCategory.Count > 0)
+        {
+
+            <h2>Sides</h2>
+
+            @foreach (var side in @Model.Menu.AvailableSides)
+            {
+                @if (side.Price >= Model.minimumPrice && side.Price <= Model.maximumPrice)
+                {
+                    if (Model.excludeIngredient.Count > 0)
+                    {
+                        foreach (string i in Model.excludeIngredient)
+                        {
+                            if (!side.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        Name: @side.Description
+                                        <br />
+                                        Price: $@side.Price
+                                        <br />
+                                        Calories: @side.Calories
+                                        <br />
+                                        Ingredients: @foreach (var ingredient in side.Ingredients)
+                                        {
+                                            @(ingredient + ", ")
+                                        }
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                if (side.Ingredients.Contains(i))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="menu-item">
+                            <p>
+                                Name: @side.Description
+                                <br />
+                                Price: $@side.Price
+                                <br />
+                                Calories: @side.Calories
+                                <br />
+                                Ingredients: @foreach (var ingredient in side.Ingredients)
+                                {
+                                    @(ingredient + ", ")
+                                }
+                            </p>
+                        </div>
+                    }
+                }
+            }
+        }
+
+        @if (Model.menuCategory.Contains("Drink") && Model.menuCategory.Count > 0)
+        {
+            <h2>Drinks</h2>
+            @foreach (var drink in @Model.Menu.AvailableDrinks)
+            {
+                if (Model.excludeIngredient.Count > 0)
+                {
+                    foreach (string i in Model.excludeIngredient)
+                    {
+                        if (!drink.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                        {
+                            <div class="menu-item">
+                                <p>
+                                    Name: @drink.Description
+                                    <br />
+                                    Price: $@drink.Price
+                                    <br />
+                                    Calories: @drink.Calories
+                                    <br />
+                                    Ingredients: @foreach (var ingredient in drink.Ingredients)
+                                    {
+                                        @(ingredient + ", ")
+                                    }
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            if (drink.Ingredients.Contains(i))
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    <div class="menu-item">
+                        <p>
+                            Name: @drink.Description
+                            <br />
+                            Price: $@drink.Price
+                            <br />
+                            Calories: @drink.Calories
+                            <br />
+                            Ingredients: @foreach (var ingredient in drink.Ingredients)
+                            {
+                                @(ingredient + ", ")
+                            }
+                        </p>
+                    </div>
+                }
+            }
+        }
+
+        @if (Model.menuCategory.Count == 0)
+        {
+            <h2>Combos</h2>
+            foreach (var combo in @Model.Menu.AvailableCombos)
+            {
+                if (combo.Price >= Model.minimumPrice && combo.Price <= Model.maximumPrice)
+                {
+                    if (Model.excludeIngredient.Count > 0)
+                    {
+                        foreach (string i in Model.excludeIngredient)
+                        {
+                            if (!combo.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        Name: @combo.Description
+                                        <br />
+                                        Price: $@combo.Price
+                                        <br />
+                                        Calories: @combo.Calories
+                                        <br />
+                                        Ingredients: @foreach (var ingredient in combo.Ingredients)
+                                        {
+                                            @(ingredient + ", ")
+                                        }
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                if (combo.Ingredients.Contains(i))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="menu-item">
+                            <p>
+                                Name: @combo.Description
+                                <br />
+                                Price: $@combo.Price
+                                <br />
+                                Calories: @combo.Calories
+                                <br />
+                                Ingredients: @foreach (var ingredient in combo.Ingredients)
+                                {
+                                    @(ingredient + ", ")
+                                }
+                            </p>
+                        </div>
+                    }
+                }
+            }
+
+            <h2>Entrees</h2>
+            foreach (var entree in @Model.Menu.AvailableEntrees)
+            {
+                if (entree.Price >= Model.minimumPrice && entree.Price <= Model.maximumPrice)
+                {
+                    if (Model.excludeIngredient.Count > 0)
+                    {
+                        foreach (string i in Model.excludeIngredient)
+                        {
+                            if (!entree.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        Name: @entree.Description
+                                        <br />
+                                        Price: $@entree.Price
+                                        <br />
+                                        Calories: @entree.Calories
+                                        <br />
+                                        Ingredients: @foreach (var ingredient in entree.Ingredients)
+                                        {
+                                            @(ingredient + ", ")
+                                        }
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                if (entree.Ingredients.Contains(i))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="menu-item">
+                            <p>
+                                Name: @entree.Description
+                                <br />
+                                Price: $@entree.Price
+                                <br />
+                                Calories: @entree.Calories
+                                <br />
+                                Ingredients: @foreach (var ingredient in entree.Ingredients)
+                                {
+                                    @(ingredient + ", ")
+                                }
+                            </p>
+                        </div>
+                    }
+                }
+            }
+
+            <h2>Sides</h2>
+
+            foreach (var side in @Model.Menu.AvailableSides)
+            {
+                if (side.Price >= Model.minimumPrice && side.Price <= Model.maximumPrice)
+                {
+                    if (Model.excludeIngredient.Count > 0)
+                    {
+                        foreach (string i in Model.excludeIngredient)
+                        {
+                            if (!side.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        Name: @side.Description
+                                        <br />
+                                        Price: $@side.Price
+                                        <br />
+                                        Calories: @side.Calories
+                                        <br />
+                                        Ingredients: @foreach (var ingredient in side.Ingredients)
+                                        {
+                                            @(ingredient + ", ")
+                                        }
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                if (side.Ingredients.Contains(i))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="menu-item">
+                            <p>
+                                Name: @side.Description
+                                <br />
+                                Price: $@side.Price
+                                <br />
+                                Calories: @side.Calories
+                                <br />
+                                Ingredients: @foreach (var ingredient in side.Ingredients)
+                                {
+                                    @(ingredient + ", ")
+                                }
+                            </p>
+                        </div>
+                    }
+                }
+            }
+
+            <h2>Drinks</h2>
+
+            foreach (var drink in @Model.Menu.AvailableDrinks)
+            {
+                if (drink.Price >= Model.minimumPrice && drink.Price <= Model.maximumPrice)
+                {
+                    if (Model.excludeIngredient.Count > 0)
+                    {
+                        foreach (string i in Model.excludeIngredient)
+                        {
+                            if (!drink.Ingredients.Contains(i) && Model.excludeIngredient.Last().Equals(i))
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        Name: @drink.Description
+                                        <br />
+                                        Price: $@drink.Price
+                                        <br />
+                                        Calories: @drink.Calories
+                                        <br />
+                                        Ingredients: @foreach (var ingredient in drink.Ingredients)
+                                        {
+                                            @(ingredient + ", ")
+                                        }
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                if (drink.Ingredients.Contains(i))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="menu-item">
+                            <p>
+                                Name: @drink.Description
+                                <br />
+                                Price: $@drink.Price
+                                <br />
+                                Calories: @drink.Calories
+                                <br />
+                                Ingredients: @foreach (var ingredient in drink.Ingredients)
+                                {
+                                    @(ingredient + ", ")
+                                }
+                            </p>
+                        </div>
+                    }
+                }
+            }
+        }
+    </div>
+	<div id="sidebar">
+		<form method="post">
+			<input type="text" name="search" id="search" />
+			<input type="submit" value="Search And Filter" />
 			<br />
-			Price: $@combo.Price
-			<br />
-			Calories: @combo.Calories
-			<br />
-			Ingredients: @foreach (var ingredient in combo.Ingredients)
-			{
-				@(ingredient + ", ")
-			}
-		</p>
+			<div class="category-filter">
+				<h3>Menu Category</h3>
+				<div class="category-component">
+					<label>
+						<input type="checkbox" class="menu-category" name="menuCategory" value="Combo" />
+						Combo
+					</label>
+					<br />
+					<label>
+						<input type="checkbox" class="menu-category" name="menuCategory" value="Entree" />
+						Entree
+					</label>
+					<br />
+					<label>
+						<input type="checkbox" class="menu-category" name="menuCategory" value="Side" />
+						Side
+					</label>
+					<br />
+					<label>
+						<input type="checkbox" class="menu-category" name="menuCategory" value="Drink" />
+						Drink
+					</label>				
+				</div>
+			</div>
+			<div>
+				<h3>Price</h3>
+				<label>
+					Min
+					<input type="number" id="minimum-price" name="minimumPrice" min="0" max="10" step=".01" value="@Model.minimumPrice"/>
+				</label>
+				<label>
+					Max
+					<input type="number" id="maximum-price" name="maximumPrice" min="0" max="10" step=".01" value="@Model.maximumPrice"/>
+				</label>
+			</div>
+			<div>
+				<h3>Excluding Ingredients</h3>
+				@foreach (var ingredient in Model.Menu.PossibleIngredients)
+				{
+					<label>
+						<input type="checkbox" class="exclude-ingredient" name="excludeIngredient" value="@ingredient" />
+						@ingredient
+					</label>
+					<br />
+				}
+			</div>
+		</form>
 	</div>
-}
-
-<h2>Entrees</h2>
-@foreach (var entree in @Model.Menu.AvailableEntrees)
-{
-	<div class="menu-item">
-		<p>
-			Name: @entree.Description
-			<br />
-			Price: $@entree.Price
-			<br />
-			Calories: @entree.Calories
-			<br />
-			Ingredients: @foreach (var ingredient in entree.Ingredients)
-			{
-				@(ingredient + ", ")
-			}
-		</p>
-	</div>
-}
-
-<h2>Sides</h2>
-
-@foreach (var side in @Model.Menu.AvailableSides)
-{
-	<div class="menu-item">
-		<p>
-			Name: @side.Description
-			<br />
-			Price: $@side.Price
-			<br />
-			Calories: @side.Calories
-			<br />
-			Ingredients: @foreach (var ingredient in side.Ingredients)
-			{
-				@(ingredient + ", ")
-			}
-		</p>
-	</div>
-}
-
-<h2>Drinks</h2>
-
-@foreach (var drink in @Model.Menu.AvailableDrinks)
-{
-	<div class="menu-item">
-		<p>
-			Name: @drink.Description
-			<br />
-			Price: $@drink.Price
-			<br />
-			Calories: @drink.Calories
-			<br />
-			Ingredients: @foreach (var ingredient in drink.Ingredients)
-			{
-				@(ingredient + ", ")
-			}
-		</p>
-	</div>
-}
+</div>

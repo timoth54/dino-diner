@@ -46,6 +46,11 @@ namespace DinoDiner.Menu
         public List<CretaceousCombo> AvailableCombos { get => availableCombos; }
 
         /// <summary>
+        /// Gets the possible of possible ingredients.
+        /// </summary>
+        public HashSet<string> PossibleIngredients { get => GetPossibleIngredients(); }
+
+        /// <summary>
         /// Creates a new instance of the Menu.
         /// </summary>
         public Menu()
@@ -117,6 +122,40 @@ namespace DinoDiner.Menu
             }
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Gets all possible ingredients in the menu items.
+        /// </summary>
+        public HashSet<string> GetPossibleIngredients()
+        {
+            HashSet<string> possibleIngredients = new HashSet<string>();
+
+            foreach (Entree entree in availableEntrees)
+            {
+                foreach (string ingredient in entree.Ingredients)
+                {
+                    possibleIngredients.Add(ingredient);
+                }
+            }
+
+            foreach (Side side in availableSides)
+            {
+                foreach (string ingredient in side.Ingredients)
+                {
+                    possibleIngredients.Add(ingredient);
+                }
+            }
+
+            foreach (Drink drink in availableDrinks)
+            {
+                foreach (string ingredient in drink.Ingredients)
+                {
+                    possibleIngredients.Add(ingredient);
+                }
+            }
+
+            return possibleIngredients;
         }
     }
 }
